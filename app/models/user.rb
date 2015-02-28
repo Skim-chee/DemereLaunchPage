@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
 
 	validates :email, 
 	presence: true,
-	length: {maximum: 255}
+	length: {maximum: 255},
 	uniqueness: { case_sensitive: false },
 	format: {with: VALID_EMAIL_REGEX}
 
@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
 	length: {maximum: 255}
 	# Will be presented in a dropdown menu
 	validates :state,
-	presence: true,
+	presence: true
 	# Will be presented as Male/Female buttons
 	validates :gender,
 	presence: true

@@ -13,19 +13,27 @@
 /* Header styling */
 .logo {
 	width: 5em;
-	height: 5em;
 	padding: 15px;
-	margin-left: 25px;
 }
 
 .navbar {
-	background-color: #fcf6e5;
-	background-image: url(/assets/header.jpg)
-}
-.navbar-inverse {
+	background-image: url(/assets/header.jpg);
 	border-color: transparent;
+	height: 4.5em;
 }
 
+.nav.navbar-nav li a{
+	color: #fff;
+	padding: 20px;
+
+	&:hover {
+		color: #ccc;
+	}	
+}
+
+.navbar-right {
+	margin-right: 2em;
+}
 /* Body styling */
 
 

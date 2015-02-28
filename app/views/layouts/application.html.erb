@@ -13,7 +13,7 @@
     </head>
     <body>
      <div class="container">
-      <%= render 'layouts/header' %>
+      
       <%= yield %>
       <!-- debugger that only shows up in development environment -->
       <%= debug(params) if Rails.env.development? %>
