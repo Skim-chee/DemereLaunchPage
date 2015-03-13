@@ -1,0 +1,48 @@
+/* imports */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/* mixins, variables, etc. */
+// Used to style debugger
+@mixin box_sizing {
+	-moz-box-sizing:    border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing:         border-box;
+}
+
+/* Header styling */
+.logo {
+	width: 5em;
+	padding: 15px;
+}
+
+.navbar {
+	background-image: url(/assets/header.jpg);
+	border-color: transparent;
+	height: 4.5em;
+}
+
+.nav.navbar-nav li a{
+	color: #fff;
+	padding: 20px;
+
+	&:hover {
+		color: #ccc;
+	}	
+}
+
+.navbar-right {
+	margin-right: 2em;
+}
+/* Body styling */
+
+
+/* miscellaneous */
+
+.debug_dump {
+	clear: both;
+	float: left;
+	width: 100%;
+	margin-top: 45px;
+	@include box_sizing;
+}

@@ -1,0 +1,30 @@
+<body>
+	<div class = "emaillist">
+		<table class = "table table-bordered">
+			<tr>
+				<th>
+					id
+				</th>
+				<th>
+					email
+				</th>
+				<th>
+					activated
+				</th>
+			</tr>	
+			<% @email_list.each do |email| %>
+			<tr>
+				<td>
+					<%= email.id %>
+				</td>
+				<td>
+					<%= email.email %>
+				</td>
+				<td>
+					<%= 'no' if !email.activated%><%= 'yes' if email.activated%>
+				</td>
+			</tr>
+			<% end %>
+		</table>
+	</div>
+</body>

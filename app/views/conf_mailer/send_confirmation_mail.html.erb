@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
+<body>
+<table>
+  <tr style = "width:100%; height:100px; background-color: #3273db;">
+    <td style = "align:center; font-size:30px; font-weight:bold; color: #FFF;">You have successfully signed up for our newsletter!</td>
+  </tr>
+  <tr style = "width:100%; height:250px; background-color: #ede2cb;">
+    <td style = "align:center; font-size:30px; font-weight:bold;">To confirm your email, just follow this link: <%= link_to 'Confirm', account_confirmation_url(token: @email.email_confirm_token) %></td>
+  </tr>
+  <tr style = "width:100%; height:250px; background-color: #ede2cb;">
+  	<td style = "align:center; font-size:30px; font-weight:bold;">Thanks for signing up and have a great day!</td>
+  </tr>
+</table>
+</body>
+</html>
