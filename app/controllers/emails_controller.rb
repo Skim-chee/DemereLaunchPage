@@ -10,10 +10,10 @@ class EmailsController < ApplicationController
 		if @email.save
 			@email.send_confirmation
 			flash[:success] = "Please check your email to activate your account."
-			render 'new'
+			redirect_to root_url
 		else
 			flash[:success] = "You logged in!"
-			render 'new'
+			redirect_to root_url
 		end
 	end
 
