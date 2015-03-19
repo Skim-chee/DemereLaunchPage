@@ -1,6 +1,10 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+
+  #### Sets default email to send out notices such as confirmations etc. ####
+  config.action_mailer.default_url_options = { :host => 'demer.co' }
+
   # Code is not reloaded between requests.
   config.cache_classes = true
 
