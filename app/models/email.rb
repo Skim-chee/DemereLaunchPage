@@ -1,8 +1,7 @@
 class Email < ActiveRecord::Base
+
 	belongs_to :referrer, :class_name => "Email", :foreign_key => "referrer_id"
 	has_many :referrals, :class_name => "Email", :foreign_key => "referrer_Id"
-
-	attr_accessible :email
 
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
@@ -12,7 +11,7 @@ class Email < ActiveRecord::Base
 	format: {with: VALID_EMAIL_REGEX}
 
 	validates :referral_code,
-	:uniqueness: true
+	uniqueness: true
 
 	before_create :create_referral_code
 	# Array of hashes describing the reward levels for referring friends
