@@ -6,9 +6,7 @@ Rails.application.routes.draw do
 
   get 'emaillist' => 'email_list#email_list'
 
-  get 'demerprivate' => 'users#new'
-
-  get 'account_confirmation', to: 'emails#account_confirmation'
+  # get 'account_confirmation', to: 'emails#account_confirmation'
   
   resources :emails
 
