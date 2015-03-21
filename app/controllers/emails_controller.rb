@@ -4,13 +4,12 @@ class EmailsController < ApplicationController
 	end
 
 	def create
-		@email = Email.find_by_email()
+		@email = Email.find_by(email_params)
 
 		# @email = Email.new(email_params)
 		# If new email is input and saved, send confirmation email, 
 		# flash success message, and redirect to home page
-		if !@email.nil?
-
+		if !@email
 			current_ip = IpAddress.find_by_address(request.remote_ip)
 
 			if !current_ip 
@@ -20,9 +19,10 @@ class EmailsController < ApplicationController
 				)
 			end
 
-			if current_ip.count > 2 
+			if current_ip.count > 3
 				flash[:alert] = "An account is already linked to this ip address"
-				redirect_to root_url
+				puts "FOOL"
+				return redirect_to root_url
 			else 
 				current_ip.count = current_ip.count + 1
 				current_ip.save
@@ -35,26 +35,29 @@ class EmailsController < ApplicationController
 			puts '----TESTING----'
 			puts @referred_by.email if @referred_by
 			puts request.remote_ip.inspect
+			puts current_ip.count
 			puts '----END TESTING----'
 
 			if !@referred_by.nil?
 				@email.referrer = @referred_by
 			end
 
-			@email.send_confirmation
+			# @email.send_confirmation
 			@email.save
 		end
 
-		respond_to do |format|
-			if !@email.nil?
-				cookies[:h_email] = { :value => @email.email}
-				flash[:success] = "Please check your email to activate your account."
-				render '/refer'
-			else
-				flash[:alert] = "Something went wrong!"
-				redirect_to root_url
-			end
+	
+		if @email
+			cookies[:h_email] = { :value => @email.email}
+			puts "SUCCESSSSSS"
+			flash[:success] = "Please check your email to activate your account."
+			render 'emails/refer'
+		else
+			flash[:alert] = "Something went wrong!"
+			puts "FAILUREEEEEE"
+			redirect_to root_url
 		end
+		
 	end
 
 	def account_confirmation	

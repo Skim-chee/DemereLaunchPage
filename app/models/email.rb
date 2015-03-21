@@ -52,11 +52,11 @@ class Email < ActiveRecord::Base
 	# Generates unique referall code for Email
     def create_referral_code
         referral_code = SecureRandom.hex(5)
-        @collision = User.find_by_referral_code(referral_code)
+        @collision = Email.find_by_referral_code(referral_code)
 
         while !@collision.nil?
             referral_code = SecureRandom.hex(5)
-            @collision = User.find_by_referral_code(referral_code)
+            @collision = Email.find_by_referral_code(referral_code)
         end
 
         self.referral_code = referral_code
