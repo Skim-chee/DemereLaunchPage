@@ -4,16 +4,56 @@ class EmailsController < ApplicationController
 	end
 
 	def create
-		@email = Email.new(email_params)
+		@email = Email.find_by_email()
+
+		# @email = Email.new(email_params)
 		# If new email is input and saved, send confirmation email, 
 		# flash success message, and redirect to home page
-		if @email.save
+		if !@email.nil?
+
+			current_ip = IpAddress.find_by_address(request.remote_ip)
+
+			if !current_ip 
+				current_ip = IpAddress.create(
+					:address => request.remote_ip,
+					:count => 0
+				)
+			end
+
+			if current_ip.count > 2 
+				flash[:alert] = "An account is already linked to this ip address"
+				redirect_to root_url
+			else 
+				current_ip.count = current_ip.count + 1
+				current_ip.save
+			end
+
+			@email = Email.new(email_params)
+
+			@referred_by = Email.find_by_referral_code(cookies[:h_ref])
+
+			puts '----TESTING----'
+			puts @referred_by.email if @referred_by
+			puts request.remote_ip.inspect
+			puts '----END TESTING----'
+
+			if !@referred_by.nil?
+				@email.referrer = @referred_by
+			end
+
 			@email.send_confirmation
-			flash[:success] = "Please check your email to activate your account."
-			redirect_to root_url
-		else
-			flash[:success] = "You logged in!"
-			redirect_to root_url
+			@email.save
+		end
+
+		respond_to do |format|
+			if !@email.nil?
+				cookies[:h_email] = { :value => @email.email}
+				flash[:success] = "Please check your email to activate your account."
+				render '/refer'
+			else
+				flash[:alert] = "Something went wrong!"
+				redirect_to root_url
+			end
 		end
 	end
 
@@ -35,5 +75,14 @@ class EmailsController < ApplicationController
 
 	def email_params
 		params.require(:email).permit(:email)
+	end
+
+	def skip_first_page
+		email = cookies[:h_email]
+		if email and Email.find_by_email(email)
+			redirect_to '/refer'
+		else 
+			cookies.delete :h_email
+		end
 	end
 end

@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   root 'emails#new'
 
+  get 'refer' => 'emails#refer'
+
   get 'emaillist' => 'email_list#email_list'
 
   # get 'account_confirmation', to: 'emails#account_confirmation'

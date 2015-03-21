@@ -1,6 +1,26 @@
-<div class = "signup_header">
+<div class = "signup-header">
 	<div class = "content">
-		<p class = "signup_logo">Demer</p>
-		<p class = "signup_thanks"> THANK'S FOR SIGNING UP!</p>
+		<p class = "signup-logo">Demer</p>
+		<p class = "signup-thanks"> THANK'S FOR SIGNING UP!</p>
 	</div>
 </div>
+
+<div class = "signup-body">
+	<div class = "share-wrap">
+		<p> Don't leave your friends behind </p>
+		<p> INVITE FRIENDS & <br> GET REWARDED </p>
+		<p class = "subtitle"> Share your unique referral link via email, Facebook<br>or Twitter and get rewarded </p>
+		<div class = "copy-link"><%= root_url %>?ref=<%= @email.referral_code %></div>
+		
+		<!-- Tweet message when shared  -->
+		<% tweet = "My wardrobe is about to become fabulous. Can't wait until @demer launches!" %>
+		
+		<div class = "social-links">
+			<a href="http://www.facebook.com/sharer/sharer.php?u=<%= CGI::escape(root_url) %>?ref=<%= CGI::escape(@email.referral_code) %>&title=Harrys" class="fb" target="_blank"></a>
+
+			<a href="http://twitter.com/share?url=<%= CGI::escape(root_url) %>?ref=<%= CGI::escape(@email.referral_code) %>&text=<%= CGI::escape(tweet) %>" class="twit" target="_blank"></a>
+		</div>
+	</div>
+</div>
+
+
