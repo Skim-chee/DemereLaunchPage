@@ -20,7 +20,7 @@ class EmailsController < ApplicationController
 			end
 
 			if current_ip.count > 3
-				flash[:alert] = "An account is already linked to this ip address"
+				flash[:danger] = "Too many accounts are already linked to this ip address"
 				puts "FOOL"
 				return redirect_to root_url
 			else 
@@ -50,7 +50,6 @@ class EmailsController < ApplicationController
 		if @email
 			cookies[:h_email] = { :value => @email.email}
 			puts "SUCCESSSSSS"
-			flash[:success] = "Please check your email to activate your account."
 			render 'emails/refer'
 		else
 			flash[:alert] = "Something went wrong!"

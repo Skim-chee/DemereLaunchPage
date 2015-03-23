@@ -24,16 +24,24 @@
 }
 
 .helper-right {
-	position: fixed;
+	position: relative;
 	width: 30%;
 	height: 100%;
 	right: 0px;
-	display: table;
-	.form {
+	display: table; 
+	
+	.sign_up_flash {
+		top: 150px;
+		width: 50px;
+		background-color: #000;
+	}
+
+	.sign_up_form {
 		top: 325px;
 		padding:5px;
 	}
 }
+
 
 .btn-primary {
 	background-color: #000;

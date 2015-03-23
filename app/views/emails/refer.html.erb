@@ -16,11 +16,29 @@
 		<% tweet = "My wardrobe is about to become fabulous. Can't wait until @demer launches!" %>
 		
 		<div class = "social-links">
-			<a href="http://www.facebook.com/sharer/sharer.php?u=<%= CGI::escape(root_url) %>?ref=<%= CGI::escape(@email.referral_code) %>&title=Harrys" class="fb" target="_blank"></a>
+			<a href="http://www.facebook.com/sharer/sharer.php?u=<%= CGI::escape(root_url) %>?ref=<%= CGI::escape(@email.referral_code) %>&title=Demer" class="fb" target="_blank"></a>
 
 			<a href="http://twitter.com/share?url=<%= CGI::escape(root_url) %>?ref=<%= CGI::escape(@email.referral_code) %>&text=<%= CGI::escape(tweet) %>" class="twit" target="_blank"></a>
 		</div>
 	</div>
 </div>
+
+<!-- Finds the appropriate reward level based on the amount of referalls a user has -->
+<% 
+	refer_count = @email.referrals.count 
+
+	stops = Email::REFERRAL_STEPS
+	found = nil
+
+	stops.reverse_each { |stop|
+		if stop["count"] <= refer_count and !found
+			stop["selected"] = true
+			found = stop
+		else 
+			stop["selected"] = false
+		end
+	}
+%>
+
 
 

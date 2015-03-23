@@ -9,7 +9,7 @@
 					email
 				</th>
 				<th>
-					activated
+					Referrals
 				</th>
 			</tr>	
 			<% @email_list.each do |email| %>
@@ -21,7 +21,7 @@
 					<%= email.email %>
 				</td>
 				<td>
-					<%= 'no' if !email.activated%><%= 'yes' if email.activated%>
+					<%= email.referrals.count %>
 				</td>
 			</tr>
 			<% end %>
