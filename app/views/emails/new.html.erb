@@ -10,7 +10,7 @@
             <div class="alert alert-<%= message_type %>"><%= message %></div>
           <% end %>
         </div>
-        <div class = "sign_up_form"
+        <div class = "sign_up_form">
           <%= form_for(@email) do |f| %>
             <div class = "form-group">
             <%= f.email_field :email, placeholder: "Email Address", :class => "form-control"%>
