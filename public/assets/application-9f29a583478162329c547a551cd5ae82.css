@@ -4,7 +4,7 @@
 }
 /* line 5, /Users/seean/Code/Live/DemerLaunchPage/app/assets/stylesheets/emails.scss */
 .body {
-  background-image: url(/assets/background.jpg);
+  background-image: url(/assets/background-5194f61a253e7efb6be78c3771206d31.jpg);
   background-position: 0% 25%;
   background-size: cover;
   background-repeat: no-repeat;
@@ -19,29 +19,69 @@
   position: fixed;
   width: 30%;
   height: 100%;
-  background-color: #147ea8;
-  right: 0px;
+  background-color: transparent !important;
+  left: 0px;
   display: table;
-  opacity: 0.6;
+  opacity: 0.0;
 }
 
 /* line 26, /Users/seean/Code/Live/DemerLaunchPage/app/assets/stylesheets/emails.scss */
 .helper-right {
-  position: fixed;
+  position: relative;
   width: 30%;
   height: 100%;
-  right: 0px;
+  left: 0px;
   display: table;
 }
-/* line 32, /Users/seean/Code/Live/DemerLaunchPage/app/assets/stylesheets/emails.scss */
-.helper-right .form {
+/* line 33, /Users/seean/Code/Live/DemerLaunchPage/app/assets/stylesheets/emails.scss */
+.helper-right .sign_up_flash {
+  top: 150px;
+  width: 50px;
+  background-color: #000;
+}
+/* line 39, /Users/seean/Code/Live/DemerLaunchPage/app/assets/stylesheets/emails.scss */
+.helper-right .sign_up_form {
   top: 325px;
   padding: 5px;
 }
 
-/* line 38, /Users/seean/Code/Live/DemerLaunchPage/app/assets/stylesheets/emails.scss */
+/* line 46, /Users/seean/Code/Live/DemerLaunchPage/app/assets/stylesheets/emails.scss */
 .btn-primary {
   background-color: #000;
+}
+/* line 1, /Users/seean/Code/Live/DemerLaunchPage/app/assets/stylesheets/refer.scss */
+.share-wrap {
+  width: 400px;
+  text-align: center;
+}
+
+/* line 6, /Users/seean/Code/Live/DemerLaunchPage/app/assets/stylesheets/refer.scss */
+.share-wrap .social-links {
+  width: 120px;
+  height: 37px;
+  margin: 25px auto 0;
+  text-align: center;
+}
+
+/* line 13, /Users/seean/Code/Live/DemerLaunchPage/app/assets/stylesheets/refer.scss */
+.share-wrap .social-links a, .share-wrap .social-links div {
+  display: inline-block;
+}
+
+/* line 17, /Users/seean/Code/Live/DemerLaunchPage/app/assets/stylesheets/refer.scss */
+.share-wrap .social-links .fb {
+  background: url(/assets/fb-9ee491a72f241a0c87b99ee7a7834228.png);
+  background-size: 27px 27px;
+  width: 27px;
+  height: 27px;
+}
+
+/* line 24, /Users/seean/Code/Live/DemerLaunchPage/app/assets/stylesheets/refer.scss */
+.share-wrap .social-links .twit {
+  background-image: url(/assets/twit-8d17e7d8d267de8034c3b20dd7e5c896.png);
+  background-size: 27px 27px;
+  width: 27px;
+  height: 27px;
 }
 
 /* imports */
@@ -8589,35 +8629,41 @@ button.close {
 /* Header styling */
 /* line 15, /Users/seean/Code/Live/DemerLaunchPage/app/assets/stylesheets/styles.scss */
 .logo {
-  width: 5em;
-  padding: 15px;
+  width: 75px !important;
+  height: 75px !important;
 }
 
 /* line 20, /Users/seean/Code/Live/DemerLaunchPage/app/assets/stylesheets/styles.scss */
-.navbar {
-  background-image: url(/assets/header.jpg);
-  border-color: transparent;
-  height: 4.5em;
+.logo-container {
+  width: 75px !important;
+  height: 75px !important;
 }
 
-/* line 26, /Users/seean/Code/Live/DemerLaunchPage/app/assets/stylesheets/styles.scss */
+/* line 25, /Users/seean/Code/Live/DemerLaunchPage/app/assets/stylesheets/styles.scss */
+.navbar {
+  border-color: transparent;
+  height: 5em !important;
+  background-color: #8AB6A7;
+}
+
+/* line 32, /Users/seean/Code/Live/DemerLaunchPage/app/assets/stylesheets/styles.scss */
 .nav.navbar-nav li a {
   color: #fff;
   padding: 20px;
 }
-/* line 30, /Users/seean/Code/Live/DemerLaunchPage/app/assets/stylesheets/styles.scss */
+/* line 36, /Users/seean/Code/Live/DemerLaunchPage/app/assets/stylesheets/styles.scss */
 .nav.navbar-nav li a:hover {
   color: #ccc;
 }
 
-/* line 35, /Users/seean/Code/Live/DemerLaunchPage/app/assets/stylesheets/styles.scss */
+/* line 41, /Users/seean/Code/Live/DemerLaunchPage/app/assets/stylesheets/styles.scss */
 .navbar-right {
   margin-right: 2em;
 }
 
 /* Body styling */
 /* miscellaneous */
-/* line 43, /Users/seean/Code/Live/DemerLaunchPage/app/assets/stylesheets/styles.scss */
+/* line 49, /Users/seean/Code/Live/DemerLaunchPage/app/assets/stylesheets/styles.scss */
 .debug_dump {
   clear: both;
   float: left;
