@@ -1,14 +1,29 @@
-.social-links {
-	background-color: #000;
-	height: 50px;
+.share-wrap {
+	width: 400px;
+	text-align: center;
 }
 
-.fb {
-	background-color: #fff;
-	height: 30px;
+.share-wrap .social-links {
+	width: 120px;
+	height: 37px;
+	margin: 25px auto 0;
+	text-align: center;
 }
 
-.twit {
-	background-color: #fff;
-	height: 30px;
+.share-wrap .social-links a, .share-wrap .social-links div {
+	display: inline-block;
+}
+
+.share-wrap .social-links .fb{
+	background: image-url('fb.png');
+	background-size: 27px 27px;
+	width: 27px;
+	height: 27px;
+}
+
+.share-wrap .social-links .twit{
+	background-image: image-url('twit.png');
+	background-size: 27px 27px;
+	width: 27px;
+	height: 27px;
 }
