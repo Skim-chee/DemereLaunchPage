@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .body {
-	background-image: image-url('background.jpg'); 
+	background-image: image-url('mainbackground.jpg'); 
 	background-position: 0% 25%;
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -11,6 +11,13 @@
 	height: 100%;
 	width: 100%;
 	left: 0px;
+	@media (max-width: 1080px) {
+		background-image: image-url('mobilebackground.jpg');
+	}
+
+	@media (max-width: 640 px) {
+		background-image: image-url('smallmobilebackground')
+	}
 }
 
 .right-col {
