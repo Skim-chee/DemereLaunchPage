@@ -3,14 +3,14 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .body {
-	background-image: image-url('mainbackground.jpg'); 
+	background-image: image-url('background.jpg'); 
 	background-position: 0% 25%;
 	background-size: cover;
 	background-repeat: no-repeat;
 	position: fixed;
 	height: 100%;
 	width: 100%;
-	left: 0px;
+	right: 0px;
 	@media (max-width: 1080px) {
 		background-image: image-url('mobilebackground.jpg');
 	}
@@ -22,19 +22,18 @@
 
 .right-col {
 	position: fixed;
-	width: 30%;
+	width: 25%;
 	height: 100%;
-	background-color: transparent !important;
-	left: 0px;
+	right: 0px;
 	display: table;
 	opacity: 0.0;
 }
 
 .helper-right {
-	position: relative;
-	width: 30%;
+	position: fixed;
+	width: 40%;
 	height: 100%;
-	left: 0px;
+	right: 0px;
 	display: table; 
 	
 	.sign_up_flash {
@@ -44,8 +43,55 @@
 	}
 
 	.form {
-		top: 325px;
-		padding:5px;
+		top: 150px;
+		padding:1px;
+		display: inline;
+		right: 25px;
+
+		.motto {
+			font-family: 'Lato', sans-serif;
+			font-weight: 300;
+			font-size: 5em;
+			letter-spacing: 3px;
+			color: #fff;
+			line-height: 1em;
+		}
+		.signuptoday {
+			font-family: 'Lato', sans-serif;
+			font-weight: 100;
+			font-size: 1.5em;
+			letter-spacing: 3px;
+			color: #fff;
+			margin-top: 2em;
+		}
+
+		.form-control {
+			font-family: 'Lato', sans-serif;
+			font-weight: 100;
+			letter-spacing: 4px;
+			font-size: 15px;
+			padding:15px;
+			height: 37px;
+
+			float:left;
+			width:15em;
+			border-radius: 10px;
+			background-color: rgba(255, 255, 255, 0.75);
+			border-color: transparent; 
+		}
+
+		.form-go {
+			font-family: 'Lato', sans-serif;
+			font-weight: 700;
+			height: 37px;
+			letter-spacing: 3px;
+			font-size: 17px;
+
+			margin-left: 15px;
+			border-radius: 10px;
+			background-color: rgba(138, 182, 167, 1);
+			color: #ffffff;
+		}
 	}
 }
 
