@@ -20,6 +20,7 @@
 	}
 }
 
+
 .right-col {
 	position: fixed;
 	width: 25%;
@@ -38,7 +39,7 @@
 	
 	.sign_up_flash {
 		top: 150px;
-		width: 50px;
+		width: 225px;
 		background-color: #000;
 	}
 
@@ -67,10 +68,10 @@
 
 		.form-control {
 			font-family: 'Lato', sans-serif;
-			font-weight: 100;
+			font-weight: 300;
 			letter-spacing: 4px;
 			font-size: 15px;
-			padding:15px;
+			padding-left:15px;
 			height: 37px;
 
 			float:left;
@@ -91,6 +92,10 @@
 			border-radius: 10px;
 			background-color: rgba(138, 182, 167, 1);
 			color: #ffffff;
+
+			&:hover {
+				background-color: #436875;
+			}
 		}
 	}
 }
