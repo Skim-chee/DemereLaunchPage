@@ -46,25 +46,32 @@ body, html{
 		.motto {
 			font-family: 'Lato', sans-serif;
 			font-weight: 300;
-			font-size: 5vw;
+			font-size: 5em;
 			letter-spacing: 3px;
 			color: #fff;
 			line-height: 1em;
+			@media only screen and (max-width:960px) {
+				font-size: 3em;
+			}
 		}
 		.signuptoday {
 			font-family: 'Lato', sans-serif;
 			font-weight: 300;
-			font-size: 1.4vw;
+			font-size: 1.4em;
 			letter-spacing: 3px;
 			color: #fff;
 			margin-top: 2em;
+			@media only screen and (max-width:960px) {
+				font-size: 1.1em;
+			}
+
 		}
 
 		.form-control {
 			font-family: 'Lato', sans-serif;
 			font-weight: 300;
 			letter-spacing: 2px;
-			font-size: 1vw;
+			font-size: 15px;
 			padding-left:15px;
 			height: 37px;
 
@@ -84,7 +91,7 @@ body, html{
 			font-weight: 700;
 			height: 37px;
 			letter-spacing: 3px;
-			font-size: 1vw;
+			font-size: 17px;
 
 			margin-left: 15px;
 			border-radius: 10px;
