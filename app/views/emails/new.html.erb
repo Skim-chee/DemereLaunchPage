@@ -1,10 +1,11 @@
 <%= render 'layouts/header' %>
 <% provide(:title, 'Sign up') %>
-<div class = "body">
+<div class = "container-fluid">
+<div class = "main">
   <div class= "right-col">
   </div>
   <div class = "helper-right">
-    <div class="form col-md-12 col-md-offset-3">
+    <div class="form col-md-9 col-md-offset-3">
         <div class = "sign_up_flash">
           <% flash.each do |message_type, message| %>
             <div class="alert alert-<%= message_type %>"><%= message %></div>
@@ -17,11 +18,12 @@
           <p class = "signuptoday"> Sign up today: </p>
           <%= form_for(@email) do |f| %>
             <div class = "form-group">
-            <%= f.email_field :email, placeholder: "EMAIL ADDRESS", :class => "form-control"%>
+            <%= f.email_field :email, placeholder: "EMAIL ADDRESS", autofocus: true,:class => "form-control"%>
             <%= f.submit "GO", class: "btn btn-primary", :class => "form-go btn"%>
             </div>
           <% end %>
         </div>
   </div>
+</div>
 </div>
 </div>

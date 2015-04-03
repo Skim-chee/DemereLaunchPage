@@ -1,7 +1,9 @@
 <%= render 'layouts/header' %>
 <div class = "refer">
 </div>
-<div class = "signup-block">
+<div class = "main">
+
+<div class = "signup-block col-md-4 col-md-offset-7 col-sm-12 col-xs-12 ">
 	<div class = "signup-header">
 		<div class = "content">
 			<p class = "signup-logo">Thank you for signing up!</p>
@@ -11,8 +13,10 @@
 	</div>
 
 	<div class = "signup-body">
-		<div class = "share-wrap">
-			<div class = "copy-link"><%= root_url %>?ref=<%= @email.referral_code %></div>
+
+			<div class = "copy-link">
+				<%= root_url %>?ref=<%= @email.referral_code %>
+			</div>
 
 			<!-- Tweet message when shared  -->
 			<% tweet = "The next big thing is here...@DemereApp has launched for signups! Use my referral code and discover it for yourself!" %>
@@ -21,8 +25,8 @@
 				<a href="http://www.facebook.com/sharer/sharer.php?u=<%= CGI::escape(root_url) %>?ref=<%= CGI::escape(@email.referral_code) %>&title=Demer" class="fb" target="_blank"></a>
 				<a href="http://twitter.com/share?url=<%= CGI::escape(root_url) %>?ref=<%= CGI::escape(@email.referral_code) %>&text=<%= CGI::escape(tweet) %>" class="twit" target="_blank"></a>
 			</div>
-		</div>
 	</div>
+</div>
 </div>
 <!-- 
 <div class = "rewards-block">

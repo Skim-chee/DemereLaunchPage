@@ -1,9 +1,20 @@
 // Place all the styles related to the emails controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body, html{
+	background-color: #272C2F;
+}
 
-.body {
-	background-image: image-url('background.jpg'); 
+.main {
+	@media screen and (min-width: 400px) {
+		background-image: image-url('smallmobilebackground.jpg');
+	}	
+	@media screen and (min-width: 900px) {
+		background-image: image-url('mobilebackground.jpg');
+	}	
+	@media screen and (min-width: 1280px) {
+		background-image: image-url('background.jpg'); 
+	}
 	background-position: 0% 25%;
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -11,13 +22,6 @@
 	height: 100%;
 	width: 100%;
 	right: 0px;
-	@media (max-width: 1080px) {
-		background-image: image-url('mobilebackground.jpg');
-	}
-
-	@media (max-width: 640 px) {
-		background-image: image-url('smallmobilebackground')
-	}
 }
 
 
@@ -69,7 +73,7 @@
 		.form-control {
 			font-family: 'Lato', sans-serif;
 			font-weight: 300;
-			letter-spacing: 4px;
+			letter-spacing: 2px;
 			font-size: 15px;
 			padding-left:15px;
 			height: 37px;
@@ -79,6 +83,10 @@
 			border-radius: 10px;
 			background-color: rgba(255, 255, 255, 0.75);
 			border-color: transparent; 
+
+			&:focus {
+				color:#000;
+			}
 		}
 
 		.form-go {

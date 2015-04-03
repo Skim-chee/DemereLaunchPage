@@ -1,7 +1,12 @@
 // .refer {
 // 	position: relative;
 // }
+.helper {
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-image: image-url('background.jpg'); 
 
+}
 .refer {
 	position:  absolute;
 	display: block;
@@ -9,10 +14,6 @@
 	height: 100%;
 	left: 0px;
 	background-position: 0% 25%;
-	background-size: cover;
-	background-repeat: no-repeat;
-
-	background-image: image-url('background.jpg'); 
 	opacity: 0.7;
 	filter: alpha(opacity=70);
 }
@@ -20,10 +21,8 @@
 .signup-block {
 	position: relative;
 	float: right;
-	right:-75px;
 	top: 150px;
-	width: 40%;
-	height: 33%;
+	text-align: center;
 
 	.signup-logo {
 		font-family: 'Lato', sans-serif; 
@@ -46,11 +45,13 @@
 		color: #8F969B;
 		border-radius: 10px;
 		width: 20em;
-		height: 2.5em;
-		padding-top: 5px;
-		margin-top: 25px;
-		margin-left: 90px;
+		height: 2.6em;
+		padding-top: 7px;
 		text-align: center;
+		
+		margin-left:auto;
+		margin-right:auto;
+		margin-top: 25px;
 	}
 }
 
@@ -64,34 +65,30 @@
 	opacity: 0.6;
 }
 
-.share-wrap {
-	width: 400px;
-}
-
-.share-wrap .social-links {
+.social-links {
 	width: 120px;
 	height: 37px;
-	margin-left: 175px;
-	margin-top: 25px;
+	margin-top: 10px;
 
 	text-align: center;
+	margin-left:auto;
+	margin-right:auto;
 }
-
-.share-wrap .social-links a, .share-wrap .social-links div {
+.social-links a, .social-links div {
 	display: inline-block;
 }
 
-.share-wrap .social-links .fb{
+.social-links .fb{
 	background: image-url('fb.png');
 	background-size: 35px 35px;
 	width: 35px;
 	height: 35px;
 }
-
-.share-wrap .social-links .twit{
+.social-links .twit{
 	background-image: image-url('twit.png');
 	background-size: 35px 35px;
 	width: 35px;
 	height: 35px;
+	margin-top: 15px;
 	margin-left: 25px;
 }
