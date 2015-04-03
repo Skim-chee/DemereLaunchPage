@@ -5,7 +5,7 @@ body, html{
 	// background-color: #272C2F;
 }
 .main-body {
-	@media screen and (min-width: 400px) {
+	@media screen and (min-width: 320px) {
 		background-image: image-url('smallmobilebackground.jpg');
 	}	
 	@media screen and (min-width: 900px) {
@@ -53,8 +53,8 @@ body, html{
 		}
 		.signuptoday {
 			font-family: 'Lato', sans-serif;
-			font-weight: 100;
-			font-size: 1.5em;
+			font-weight: 300;
+			font-size: 1.4em;
 			letter-spacing: 3px;
 			color: #fff;
 			margin-top: 2em;
@@ -69,7 +69,7 @@ body, html{
 			height: 37px;
 
 			float:left;
-			width:15em;
+			width:18em;
 			border-radius: 10px;
 			background-color: rgba(255, 255, 255, 0.75);
 			border-color: transparent; 
