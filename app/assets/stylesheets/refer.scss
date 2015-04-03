@@ -1,10 +1,18 @@
-// .refer {
+`// .refer {
 // 	position: relative;
 // }
 .helper {
 	background-size: cover;
 	background-repeat: no-repeat;
-	background-image: image-url('background.jpg'); 
+	@media screen and (min-width: 320px) {
+		background-image: image-url('smallmobilebackground.jpg');
+	}	
+	@media screen and (min-width: 900px) {
+		background-image: image-url('mobilebackground.jpg');
+	}	
+	@media screen and (min-width: 1280px) {
+		background-image: image-url('background.jpg'); 
+	}
 }
 .refer {
 	position:  absolute;
