@@ -15,7 +15,7 @@
 			<div class = "copy-link"><%= root_url %>?ref=<%= @email.referral_code %></div>
 
 			<!-- Tweet message when shared  -->
-			<% tweet = "My wardrobe is about to become fabulous. Can't wait until @demer launches!" %>
+			<% tweet = "The next big thing is here...@DemerApp has launched for signups! Use my referral code and discover it for yourself!" %>
 
 			<div class = "social-links">
 				<a href="http://www.facebook.com/sharer/sharer.php?u=<%= CGI::escape(root_url) %>?ref=<%= CGI::escape(@email.referral_code) %>&title=Demer" class="fb" target="_blank"></a>
@@ -24,10 +24,10 @@
 		</div>
 	</div>
 </div>
-
+<!-- 
 <div class = "rewards-block">
 
-</div>
+</div> -->
 
 <!-- Finds the appropriate reward level based on the amount of referalls a user has -->
 <% 
