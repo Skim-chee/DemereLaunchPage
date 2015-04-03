@@ -31,6 +31,10 @@
 	top: 150px;
 	text-align: center;
 
+	@media only screen and (max-width:480px) {
+		top: 100px;
+	}
+
 	.signup-logo {
 		font-family: 'Lato', sans-serif; 
 		font-weight: 300 bold;

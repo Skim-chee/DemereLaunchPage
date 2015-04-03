@@ -32,7 +32,11 @@ body, html{
 	display: table; 
 	position: relative;
 	top: 100px;
-	
+
+	@media only screen and (max-width:480px) {
+		top: 50px;
+	}
+
 	.sign_up_flash {
 		top: 150px;
 		width: 225px;
@@ -60,9 +64,10 @@ body, html{
 			font-size: 1.4em;
 			letter-spacing: 3px;
 			color: #fff;
-			margin-top: 2em;
+			margin-top: 1em;
 			@media only screen and (max-width:960px) {
-				font-size: 1.1em;
+				font-size: 1.4em;
+				font-weight: 300;
 			}
 
 		}
@@ -83,6 +88,10 @@ body, html{
 
 			&:focus {
 				color:#000;
+			}
+
+			@media only screen and (max-width:480px) {
+				width:10em;
 			}
 		}
 
