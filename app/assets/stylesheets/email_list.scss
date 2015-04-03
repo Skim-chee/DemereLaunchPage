@@ -1,7 +1,10 @@
 // Place all the styles related to the EmailList controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
+body {
+	overflow-y: visible !important;
+}
 .emaillist {
 	margin-top: 100px;
+	overflow-y: scroll !important;
 }
