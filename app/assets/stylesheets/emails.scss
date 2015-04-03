@@ -2,10 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 body, html{
-	background-color: #272C2F;
+	// background-color: #272C2F;
 }
-
-.main {
+.main-body {
 	@media screen and (min-width: 400px) {
 		background-image: image-url('smallmobilebackground.jpg');
 	}	
@@ -18,28 +17,21 @@ body, html{
 	background-position: 0% 25%;
 	background-size: cover;
 	background-repeat: no-repeat;
+}
+
+.main {
+	
 	position: fixed;
 	height: 100%;
 	width: 100%;
 	right: 0px;
 }
 
-
-.right-col {
-	position: fixed;
-	width: 25%;
-	height: 100%;
-	right: 0px;
-	display: table;
-	opacity: 0.0;
-}
-
 .helper-right {
-	position: fixed;
-	width: 40%;
-	height: 100%;
-	right: 0px;
+	float: right;
 	display: table; 
+	position: relative;
+	top: 100px;
 	
 	.sign_up_flash {
 		top: 150px;
@@ -48,10 +40,8 @@ body, html{
 	}
 
 	.form {
-		top: 150px;
 		padding:1px;
 		display: inline;
-		right: 25px;
 
 		.motto {
 			font-family: 'Lato', sans-serif;
