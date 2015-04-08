@@ -30,10 +30,6 @@
 	</div>
 </div>
 </div>
-<!-- 
-<div class = "rewards-block">
-
-</div> -->
 
 <!-- Finds the appropriate reward level based on the amount of referalls a user has -->
 <% 
@@ -52,5 +48,11 @@ stops.reverse_each { |stop|
 }
 %>
 
+<div class = "rewards-block">
+	<div class = "refer-count">
+		you have invited <%= if refer_count > 0 then refer_count end%> 
+		<%= if refer_count == 0 then "no friends" elsif refer_count == 1 then "friend" else "friends" end %>
+	</div>
+</div>
 
 

@@ -4,8 +4,13 @@ class EmailsController < ApplicationController
 	end
 
 	def create
-		@email = Email.find_by(email_params)
-
+		@em = Email.new(email_params)
+		if @em.valid?	
+			@email = Email.find_by(email_params)
+		else 
+			flash[:danger] = "Please enter a valid email address"
+			return redirect_to root_url
+		end
 		# @email = Email.new(email_params)
 		# If new email is input and saved, send confirmation email, 
 		# flash success message, and redirect to home page
@@ -19,18 +24,20 @@ class EmailsController < ApplicationController
 				)
 			end
 
-			if current_ip.count > 3
-				flash[:danger] = "Too many accounts are already linked to this ip address"
-				puts "FOOL"
-				return redirect_to root_url
-			else 
-				current_ip.count = current_ip.count + 1
-				current_ip.save
-			end
+			# if current_ip.count > 9
+			# 	flash[:danger] = "Too many accounts are already linked to this ip address"
+			# 	puts "FOOL"
+			# 	return redirect_to root_url
+			# else 
+			current_ip.count = current_ip.count + 1
+			current_ip.save
+			# end
 
 			@email = Email.new(email_params)
 
-			@referred_by = Email.find_by_referral_code(cookies[:h_ref])
+			if current_ip.count < 10
+				@referred_by = Email.find_by_referral_code(cookies[:h_ref])
+			end
 
 			puts '----TESTING----'
 			puts @referred_by.email if @referred_by
