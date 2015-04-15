@@ -49,9 +49,19 @@ stops.reverse_each { |stop|
 %>
 
 <div class = "rewards-block">
+</div>
+<div class = "rewards-block-inner">
 	<div class = "refer-count">
-		you have invited <%= if refer_count > 0 then refer_count end%> 
-		<%= if refer_count == 0 then "no friends" elsif refer_count == 1 then "friend" else "friends" end %>
+		you have invited <span class = "refer-count-number"><%= refer_count%></span>
+		<%= if refer_count == 0 then "friends" elsif refer_count == 1 then "friend" else "friends" end %>
+	</div>
+	<div class = "rewards-bar-block">
+		<%= if refer_count >= 100 then image_tag "ReferralBarFull.jpg", :class => "rewards-bar" 
+			elsif refer_count >= 50 then image_tag "ReferralBar4.jpg", :class => "rewards-bar" 
+			elsif refer_count >= 20 then image_tag "ReferralBar3.jpg", :class => "rewards-bar"  
+			elsif refer_count >= 5 then image_tag "ReferralBar2.jpg", :class => "rewards-bar"
+			elsif refer_count >= 1 then image_tag "ReferralBar1.jpg", :class => "rewards-bar" 
+			else image_tag "ReferralBar0.jpg", :class=> "rewards-bar" end%>
 	</div>
 </div>
 

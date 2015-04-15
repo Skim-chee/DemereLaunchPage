@@ -1,0 +1,241 @@
+type transition = int * char option * int
+
+module CharSet = Set.Make(Char);;
+module IntSet = Set.Make(struct
+  type t = int
+  let compare = Pervasives.compare
+end);;
+module TransMap = Map.Make(struct
+  type t = int * char option
+  let compare = Pervasives.compare
+end)
+
+type nfa = {
+  start_state: int;
+  final_states: IntSet.t;
+  transitions: IntSet.t TransMap.t
+}
+
+let (>>:) v f = f v
+
+let rec set'include add set = function
+  | [] -> set
+  | a :: l -> set'include add (add a set) l
+
+let intset_of_intlist = set'include IntSet.add IntSet.empty
+
+let find'trans ss co tmap =
+  try TransMap.find (ss,co) tmap 
+  with | Not_found -> IntSet.empty
+
+let push'trans ss co es tmap =
+  let prior = find'trans ss co tmap in
+  TransMap.add (ss,co) (IntSet.add es prior) tmap
+
+let union'trans tmap tmap' =
+  TransMap.fold (fun (ss,co) ess tmap ->
+    let prior = find'trans ss co tmap in
+    TransMap.add (ss,co) (IntSet.union prior ess) tmap
+  ) tmap tmap'
+
+let make_nfa start_state final_states transitions = 
+  let final_states = final_states
+    >>: intset_of_intlist
+  and transitions = transitions
+    >>: List.fold_left 
+      (fun tmap (ss,co,es) -> push'trans ss co es tmap) 
+      TransMap.empty
+  in
+  {
+    start_state = start_state;
+    final_states = final_states;
+    transitions = transitions
+  }
+
+let epsilon'closure nfa states =
+  let rec loop closure unchecked =
+    if IntSet.is_empty unchecked then
+      closure
+    else
+      let state = IntSet.choose unchecked in
+      let closure = IntSet.add state closure in
+      let new_states =
+        try
+          nfa.transitions
+          >>: TransMap.find (state,None) 
+          >>: (fun set -> IntSet.diff set closure)
+        with Not_found -> IntSet.empty in
+      let unchecked = new_states
+        >>: IntSet.union (IntSet.remove state unchecked)
+      in
+      loop closure unchecked
+  in
+  loop IntSet.empty states
+
+let inner'step nfa states input = 
+  states
+  >>: epsilon'closure nfa 
+  >>: (fun closure ->
+    IntSet.fold (fun state endstates ->
+    try 
+      TransMap.find (state,Some input) nfa.transitions
+      >>: IntSet.union endstates
+    with
+    | Not_found -> endstates) closure IntSet.empty)
+  >>: epsilon'closure nfa
+
+let step nfa states input =
+  states
+  >>: intset_of_intlist 
+  >>: (fun states -> inner'step nfa states input)
+  >>: IntSet.elements
+
+let yields nfa str states = 
+  let rec loop i n states =
+    if i = n then 
+      states
+    else
+      loop (i+1) n (inner'step nfa states str.[i])
+  in
+  loop 0 (String.length str) states
+
+let accept nfa str = 
+  nfa.start_state
+  >>: IntSet.singleton 
+  >>: yields nfa str 
+  >>: IntSet.is_empty 
+  >>: not 
+
+type regexp = 
+  | Empty_String
+  | Char of char
+  | Union of regexp * regexp
+  | Concat of regexp * regexp
+  | Star of regexp
+
+let rec regexp_to_string = function
+  | Empty_String -> "E"
+  | Char c -> String.make 1 c
+  | Union (re, re') -> 
+      (regexp_to_string re) ^ " " ^ (regexp_to_string re') ^ " |"
+  | Concat (re, re') ->
+      (regexp_to_string re) ^ " " ^ (regexp_to_string re') ^ " ."
+  | Star re ->
+      (regexp_to_string re) ^ " *"
+
+exception Illegal_Expression
+
+let string_to_regexp s = 
+  let stream = 
+    let tokens = 
+      let rec loop i a =
+        if i >= 0 then
+          loop (i-1) ((String.make 1 (char_of_int (i + (int_of_char 'a'))))::a)
+        else
+          a
+      in
+      loop 25 [ "E"; "|"; "." ; "*" ]
+    in
+    Stream.of_channel stdin
+    >>: Genlex.make_lexer tokens
+  in
+  let rec loop stack = 
+    let snoc = function
+      | a :: stack -> (a, stack)
+      | _ -> raise Illegal_Expression
+    in
+    let snoc'snoc stack = 
+      let b,stack = snoc stack in
+      let a,stack = snoc stack in
+      (a, b, stack)
+    in
+    try match Stream.next stream with
+    | Genlex.Kwd "E" -> loop (Empty_String :: stack)
+    | Genlex.Kwd "|" -> 
+        let a,b,stack = snoc'snoc stack in
+        loop ((Union (b,a))::stack)
+    | Genlex.Kwd "." -> 
+        let a,b,stack = snoc'snoc stack in
+        loop ((Concat (b,a))::stack)
+    | Genlex.Kwd "*" ->
+        let a,stack = snoc stack in
+        loop ((Star a)::stack)
+    | Genlex.Kwd s -> 
+        loop ((Char s.[0])::stack)
+    | _ -> raise Illegal_Expression
+    with
+    | Stream.Failure -> 
+        if List.length stack = 1 then
+          List.hd stack
+        else
+          raise Illegal_Expression
+  in
+  loop [] 
+
+let rec regexp_to_nfa re = 
+  let next'state =
+    let counter = ref 0 in
+    fun () ->
+      let tmp = !counter in begin
+        counter := 1 + !counter;
+        tmp
+      end
+  in
+  let left = next'state () in
+  let right = next'state () in
+  let fresh_nfa = {
+    start_state = left;
+    final_states = IntSet.singleton right;
+    transitions = TransMap.empty
+  } in 
+  let simple'nfa sym = {
+    fresh_nfa with
+    transitions = TransMap.add 
+      (fresh_nfa.start_state,sym) 
+      fresh_nfa.final_states 
+      fresh_nfa.transitions
+  }
+  in
+  match re with
+  | Empty_String -> simple'nfa None
+  | Char c -> simple'nfa (Some c)
+  | Union (re, re') ->
+      let nfa = regexp_to_nfa re
+      and nfa' = regexp_to_nfa re'
+      in {
+        fresh_nfa with
+        transitions = 
+          union'trans nfa.transitions nfa'.transitions
+          >>: push'trans left None nfa.start_state
+          >>: push'trans left None nfa'.start_state
+          >>: IntSet.fold 
+            (fun fs tmap -> push'trans fs None right tmap) 
+            (IntSet.union nfa.final_states nfa'.final_states)
+      }
+  | Concat (re, re') ->
+      let nfa = regexp_to_nfa re
+      and nfa' = regexp_to_nfa re'
+      in
+      { 
+        start_state = nfa.start_state;
+        final_states = nfa'.final_states;
+        transitions = 
+          IntSet.fold 
+            (fun es tmap -> push'trans es None nfa'.start_state tmap)
+            nfa.final_states TransMap.empty 
+          >>: union'trans nfa.transitions
+          >>: union'trans nfa'.transitions
+      }
+  | Star re ->
+      let nfa = regexp_to_nfa re in
+      { 
+        fresh_nfa with
+        transitions =
+          IntSet.fold 
+            (fun fs tmap -> push'trans fs None right tmap)
+            nfa.final_states nfa.transitions
+          >>: push'trans left None nfa.start_state
+          >>: push'trans left None right
+          >>: push'trans right None left
+      }
+
