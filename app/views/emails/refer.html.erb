@@ -1,23 +1,22 @@
 <% @title = "Demere" %>
 
-<%= render 'layouts/header' %>
+
 <div class = "refer helper">
 </div>
-<div class = "main">
-<!-- col-sm-offset-6 col-xs-offset-0 -->
-<div class = "signup-block col-md-6 col-md-offset-6 col-sm-12 col-xs-12 ">
-	<div class = "signup-header">
-		<div class = "content">
-			<p class = "signup-logo">Thank you for signing up!</p>
-			<p class = "signup-thanks"> Invite friends and earn rewards with</p>
-			<p class = "signup-thanks"> your personal referral code below. </p>
+<%= link_to "demere", root_path, class: "loginlogo" %>
+<div class = "wrapper">
+	<div class = "signup-block">
+		<div class = "signup-box"></div>
+		<div class = "signup-header">
+			<div class = "content">
+				<p class = "signup-thanks"> Invite friends and earn rewards with</p>
+				<p class = "signup-thanks"> your personal referral code below. </p>
+			</div>
 		</div>
-	</div>
 
-	<div class = "signup-body">
-
+		<div class = "signup-body">
 			<div class = "copy-link">
-				<%= root_url %>?ref=<%= @email.referral_code %>
+				<p class = "referral"><%= root_url %>?ref=<%= @email.referral_code %></p>
 			</div>
 
 			<!-- Tweet message when shared  -->
@@ -27,13 +26,13 @@
 				<a href="http://www.facebook.com/sharer/sharer.php?u=<%= CGI::escape(root_url) %>?ref=<%= CGI::escape(@email.referral_code) %>&title=Demer" class="fb" target="_blank"></a>
 				<a href="http://twitter.com/share?url=<%= CGI::escape(root_url) %>?ref=<%= CGI::escape(@email.referral_code) %>&text=<%= CGI::escape(tweet) %>" class="twit" target="_blank"></a>
 			</div>
+		</div>
 	</div>
-</div>
 </div>
 
 <!-- Finds the appropriate reward level based on the amount of referalls a user has -->
-<% 
-refer_count = @email.referrals.count 
+<%
+refer_count = @email.referrals.count
 
 stops = Email::REFERRAL_STEPS
 found = nil
@@ -42,27 +41,26 @@ stops.reverse_each { |stop|
 	if stop["count"] <= refer_count and !found
 		stop["selected"] = true
 		found = stop
-	else 
+	else
 		stop["selected"] = false
 	end
 }
 %>
 
-<!-- <div class = "rewards-block">
-</div>
- --><div class = "rewards-block-inner">
-		<div class = "refer-count">
-			you have invited <span class = "refer-count-number"><%= refer_count%></span>
-			<%= if refer_count == 0 then "friends" elsif refer_count == 1 then "friend" else "friends" end %>
-		</div>
-		<div class = "rewards-bar-block">
-			<%= if refer_count >= 100 then image_tag "ReferralBarFull.jpg", :class => "rewards-bar" 
-				elsif refer_count >= 50 then image_tag "ReferralBar4.jpg", :class => "rewards-bar" 
-				elsif refer_count >= 20 then image_tag "ReferralBar3.jpg", :class => "rewards-bar"  
-				elsif refer_count >= 5 then image_tag "ReferralBar2.jpg", :class => "rewards-bar"
-				elsif refer_count >= 1 then image_tag "ReferralBar1.jpg", :class => "rewards-bar" 
-				else image_tag "ReferralBar0.jpg", :class=> "rewards-bar" end%>
-		</div>
-</div>
 
-
+<div class = "rewards-block-inner">
+	<p class = "signup-logo">Thank you for signing up! Now share with your friends!</p>
+	<p class = "signup-sub">Each friend you refer earns you one raffle ticket for a chance to win a pair of Ray-Bans!</p>
+	<div class = "refer-count">
+		You have invited <span class = "refer-count-number"><%= refer_count%></span>
+		<%= if refer_count == 0 then "friends" elsif refer_count == 1 then "friend" else "friends" end %>
+	</div>
+	<div class = "rewards-bar-block">
+		<%= if refer_count >= 100 then image_tag "ReferralBar_5.png", :class => "rewards-bar"
+		elsif refer_count >= 50 then image_tag "ReferralBar_4.png", :class => "rewards-bar"
+		elsif refer_count >= 25 then image_tag "ReferralBar_3.png", :class => "rewards-bar"
+		elsif refer_count >= 5 then image_tag "ReferralBar_2.png", :class => "rewards-bar"
+		elsif refer_count >= 1 then image_tag "ReferralBar_1.png", :class => "rewards-bar"
+		else image_tag "ReferralBar_0.png", :class=> "rewards-bar" end%>
+	</div>
+</div>

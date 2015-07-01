@@ -1,0 +1,388 @@
+@import 'jeet/index';
+
+$red: #B5313B;
+$textred: #C35A62;
+
+/*********
+**Header**
+*********/
+
+#homeheader {
+  float: left;
+  height: 100%;
+  width: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  position: relative;
+  font-family: 'Roboto', sans-serif;
+
+  @media screen and (max-width: 480px) {
+    background: url("LandingSmall.jpg") no-repeat center center fixed;
+
+  }
+  @media screen and (min-width: 480px) {
+    background: url('LandingMed.jpg') no-repeat center center fixed;
+  }
+  @media screen and (min-width: 1140px) {
+    background: url('Landing.jpg') no-repeat center center fixed;
+  }
+  .homeheaderlogo {
+    @include col(1/4);
+    margin: 0;
+    padding: 20px 35px;
+    position: absolute;
+
+    font-family: 'Roboto', sans-serif;
+    color: $red;
+    font-size: 25px;
+    opacity: 0.8;
+    letter-spacing: 3px;
+  }
+
+  .homelogin{
+    @include col(3/4);
+    float: right;
+
+    .loginbutton{
+      float: right;
+      border: none;
+      height:75px;
+      line-height: 70px;
+      width:150px;
+      text-align: center;
+
+      background-color: #cecccc;
+      opacity: 0.8;
+      font-family: inherit;
+      font-weight: 100;
+      font-size: 30px;
+      color: #000;
+      text-decoration: none;
+
+      &:hover {
+        color: #FFF;
+      }
+
+    }
+  }
+
+  .hometitle{
+    @include col(1/3);
+    margin-left: 10%;
+    @media screen and (max-width: 780px) {
+      margin-top: 50px;
+    }
+    @media screen and (max-width: 480px) {
+        @include col(1);
+    }
+    p {
+      font-weight: 700;
+      font-size: 5vw;
+      text-shadow: 3.5px 3px #afafaf;
+      @media screen and (max-width: 480px) {
+        font-size: 8vw;
+      }
+    }
+  }
+
+  .signupcontain{
+    float: right;
+    height:	325px;
+    width: 275px;
+    margin-top: 15%;
+    margin-right: 10%;
+    @media screen and (max-width: 480px) {
+      @include col(1);
+      margin: 0;
+      bottom: 0;
+      position: absolute;
+    }
+    .homesignup{
+      width: 275px;
+      height: 325px;
+      position: relative;
+      @media screen and (max-width: 480px) {
+        @include col(1);
+        bottom: 0;
+      }
+      .signupbox{
+        position: absolute;
+        height: 325px;
+        width: 275px;
+        background: #EFEFEF;
+        opacity: 0.5;
+        @media screen and (max-width: 480px) {
+          @include col(1);
+          bottom: 0;
+        }
+      }
+      .loginhead{
+        text-align: center;
+
+        .loginboxhead{
+          font-size: 16px;
+          letter-spacing: 0px;
+          display:inline-block;
+          transform:scale(1,1); /* W3C */
+          -webkit-transform:scale(1,1); /* Safari and Chrome */
+          -moz-transform:scale(1,1); /* Firefox */
+          -ms-transform:scale(1,1); /* IE 9 */
+          -o-transform:scale(1,1); /* Opera */
+          font-weight: 300;
+          color: #000;
+          margin: 0 auto;
+        }
+        .head{
+          margin-top: 15px;
+          font-size: 50px;
+          font-weight: 700;
+          color: $red;
+          opacity: 0.8;
+          @include col(1);
+        }
+      }
+      .signupform{
+        position: absolute;
+        bottom: 0;
+        width: inherit;
+        text-align: center;
+        margin: 0 auto;
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover,
+        input:-webkit-autofill:focus,
+        input:-webkit-autofill:active {
+          transition: background-color 50000s ease-in-out 0s;
+        }
+        .alert{
+          margin: 0 auto;
+          left: 0;
+          right: 0;
+          top: -65px;
+          position:absolute;
+          text-align: center;
+
+
+          width: 250px;
+          height: 60px;
+          line-height: 60px;
+          background-color: $red;
+          font-family: 'Roboto', sans-serif;
+          font-weight: 100;
+          font-size: 22px;
+          opacity: 0.8;
+        }
+        .form-group{
+          width:90%;
+          font-size: 32px;
+          color: #848383;
+          font-weight: 300;
+          line-height: 0px;
+          margin: 0 5%;
+          margin-top: 0%;
+          border-bottom: 2px solid $red;
+          ::-webkit-input-placeholder {
+            color: #f4f4f4;
+          }
+          :-moz-placeholder { /* Firefox 18- */
+            color: #f4f4f4;
+          }
+          ::-moz-placeholder {  /* Firefox 19+ */
+            color: #f4f4f4;
+          }
+          :-ms-input-placeholder {
+            color: #f4f4f4;
+          }
+
+        }
+        .loginbutton {
+          margin-top: 30px;
+          margin-bottom: 30px;
+
+          border: none;
+          height:75px;
+          width:150px;
+          background-color: $red;
+          opacity: 0.8;
+
+          font-family: 'Roboto', sans-serif;
+          font-weight: 100;
+          font-size: 30px;
+          color: #FFF;
+
+
+          &:hover {
+            color: #000;
+          }
+        }
+        .email {
+          line-height: 30px;
+          margin-left: 0px;
+          border: none;
+          outline: none;
+          background: none;
+          width: 90%;
+
+          font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+          font-weight: 200;
+          font-size: 22px;
+          .form-control{
+            border-bottom: 1px solid #C25961;
+          }
+        }
+      }
+    }
+  }
+}
+
+/**************
+**Information**
+**************/
+
+#homeinfo{
+  float: left;
+  width: 100%;
+  height: 250px;
+  position: relative;
+  margin-top: 50px;
+  @media only screen and (max-width:985px) {
+    height: 600px;
+    display: block;
+  }
+  .infosection {
+    @include col(1/3);
+    margin-right: 2%;
+    height: 200px;
+    @media only screen and (max-width:985px) {
+      @include col(1);
+    }
+
+    text-align: center;
+    .infohead{
+      margin-top: 0px;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 400;
+      font-size: 2.5rem;
+      color: $textred;
+    }
+    .infobody{
+      width: 80%;
+      margin: 0 auto;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 200;
+      font-size: 22px;
+
+    }
+  }
+  .infoleft {
+    height: 200px;
+    @media only screen and (max-width:985px) {
+      border-top: 2px solid $textred;
+    }
+    @media only screen and (min-width:985px) {
+      border-left: 2px solid $textred;
+    }
+    .infohead {
+      @media only screen and (max-width:985px) {
+        margin-top: 25px
+      }
+    }
+  }
+}
+
+
+#homeinfobar {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 350px;
+  text-align: center;
+
+  .homeinfoback {
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    background-color: #c9c9c9;
+    opacity: 0.3;
+  }
+  .infopara, .infoparahead{
+    margin: 0 auto;
+    position: relative;
+    width: 70%;
+    top: 20%;
+    font-family: 'Roboto', sans-serif;
+    font-size: 22px;
+    font-weight: 200;
+  }
+  .infoparahead {
+    font-size: 50px;
+    color: $textred;
+    top: 10%;
+    font-weight: 500;
+  }
+  .infopara {
+    @media only screen and (max-width:920px) {
+      visibility: hidden;
+    }
+  }
+  .infomodal{
+    position: absolute;
+    bottom: 40px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    border: none;
+    height:75px;
+    width:150px;
+    background-color: $red;
+    opacity: 0.8;
+
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+    font-size: 30px;
+    color: #FFF;
+    visibility: hidden;
+    @media only screen and (max-width:920px) {
+      visibility: visible;
+    }
+    &:hover {
+      color: #000;
+    }
+  }
+}
+
+#signupbar {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 150px;
+  margin-top: 50px;
+  text-align: center;
+  #sign-up-button {
+    margin-top: 50px;
+    border: none;
+    height:75px;
+    width:150px;
+    background-color: $red;
+    opacity: 0.8;
+
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+    font-size: 30px;
+    color: #FFF;
+
+
+    &:hover {
+      color: #000;
+    }
+  }
+}
+.featherlight-inner {
+  text-align: center;
+  margin: 0 auto;
+  width: 80%;
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px;
+  font-weight: 200;
+}

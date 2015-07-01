@@ -8,9 +8,12 @@ Rails.application.routes.draw do
 
   get 'emaillist' => 'email_list#email_list'
 
+  get 'createOutfit' => 'articles#make_outfit'
+
   # get 'account_confirmation', to: 'emails#account_confirmation'
-  
+
   resources :emails
+  resources :email_steps
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

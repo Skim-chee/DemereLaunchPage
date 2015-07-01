@@ -1,0 +1,9 @@
+<%= form_for(@email) do |f| %>
+<div class = "form-group">
+  <%= f.text_field :email, placeholder: "email address", autofocus: true,:class => "email"%>
+</div>
+
+<div class = "form-submit">
+  <button class = "loginbutton">next</button>
+</div>
+<% end %>

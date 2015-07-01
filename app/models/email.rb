@@ -5,9 +5,20 @@ class Email < ActiveRecord::Base
 
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
-	validates :email, 
-    presence: true, 
-	format: {with: VALID_EMAIL_REGEX}
+	validates :email,
+    presence: {message: "is missing"},
+			format: {with: VALID_EMAIL_REGEX, message: "is not valid"},
+			on: :first
+
+	validates :name,
+		presence: {message: "is missing"},
+		format: {with: /\A([a-zA-Z]|\s|\-|\.)+\z/, message: "is not valid"},
+		on: :second
+
+	validates :zipcode,
+		presence: {message: "is missing"},
+		length: {is: 5, message: "is not valid"},
+		on: :second
 
 	validates :referral_code,
 	uniqueness: true

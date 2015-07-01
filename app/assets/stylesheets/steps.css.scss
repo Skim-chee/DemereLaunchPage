@@ -1,0 +1,144 @@
+// Place all the styles related to the steps controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import 'jeet/index';
+$red: #C35A62;
+.form-group {
+  border-bottom: 2px solid $red;
+  margin-top: 15px;
+  .name, .zip {
+    line-height: 30px;
+    margin-left: 0px;
+    border: none;
+    outline: none;
+    background: none;
+    width: 180px;
+
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 200;
+    font-size: 22px;
+    .form-control{
+      border-bottom: 1px solid #C25961;
+    }
+  }
+}
+
+#logintop{
+  .topbackground{
+    position: absolute;
+    height: 55px;
+    width: 100%;
+    background-color: #c9c9c9;
+    opacity: 0.1;
+
+    .bg-underline{
+      width: 90%;
+      height: 100%;
+      margin: 0 auto;
+      border-bottom: 1px solid #000;
+    }
+  }
+
+  .loginlogo{
+    @include col(1/10);
+    height:15px;
+    margin: 0;
+    padding: 20px 35px;
+    position: absolute;
+    text-decoration: none;
+
+    font-family: 'Roboto', sans-serif;
+    color: $red;
+    font-size: 25px;
+    opacity: 0.8;
+    letter-spacing: 3px;
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+}
+
+#loginbox {
+  @include center;
+  padding-top: 55px;
+  width: 70%;
+  height: 80%;
+
+  .loginbg{
+    background-color: #c9c9c9;
+    width: inherit;
+    height: inherit;
+    position: absolute;
+    opacity: 0.15;
+  }
+  .alert{
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    top: 15px;
+    position:absolute;
+    text-align: center;
+    vertical-align: middle;
+
+    width: 250px;
+    height: 100px;
+    line-height: 100px;
+    background-color: $red;
+    font-family: 'Roboto', sans-serif;
+    font-size: 11px;
+    opacity: 0.8;
+  }
+
+  .logincontent{
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    //    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    padding-top: 125px;
+    text-decoration: none;
+    .logininputs{
+      width:160px;
+      text-align: center;
+      line-height: 35px;
+      margin: 0 auto;
+
+
+
+      .devise-btn {
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-weight: 200;
+        text-decoration: none;
+        font-size: 12px;
+        color: #C9C9C9 ;
+
+        &:hover{
+          color: #000;
+        }
+      }
+
+      .loginbutton {
+        margin-top: 30px;
+        margin-bottom: 50px;
+        border: none;
+        height:75px;
+        width:150px;
+        background-color: #cecccc;
+        opacity: 0.8;
+
+        font-family: 'Roboto', sans-serif;
+        font-weight: 100;
+        font-size: 30px;
+        color: #000;
+
+
+        &:hover {
+          color: #FFF;
+        }
+      }
+
+
+    }
+  }
+}

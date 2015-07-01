@@ -6,19 +6,31 @@
 					id
 				</th>
 				<th>
+					name
+				</th>
+				<th>
 					email
+				</th>
+				<th>
+					zipcode
 				</th>
 				<th>
 					Referrals
 				</th>
-			</tr>	
+			</tr>
 			<% @email_list.each do |email| %>
 			<tr>
 				<td>
 					<%= email.id %>
 				</td>
 				<td>
+					<%= email.name %>
+				</td>
+				<td>
 					<%= email.email %>
+				</td>
+				<td>
+					<%= email.zipcode %>
 				</td>
 				<td>
 					<%= email.referrals.count %>
