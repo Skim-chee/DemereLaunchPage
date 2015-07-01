@@ -59,7 +59,7 @@ $red: #C35A62;
 
 	}
 
-	@media only screen and (max-height:640px) {
+	@media only screen and (max-height:760px) {
 		bottom: 0;
 		right: 0;
 	}
@@ -95,7 +95,7 @@ $red: #C35A62;
 
 	.copy-link {
 		background-color: #dee2e5;
-		color: #8F969B;
+		color: #000;
 		border-radius: 10px;
 		width: 80%;
 		height: 2.6em;
