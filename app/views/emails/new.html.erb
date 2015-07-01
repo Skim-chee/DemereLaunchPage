@@ -22,11 +22,11 @@
         <div class = "loginhead">
           <p class = "loginboxhead head">Sign up</p>
           <p class = "loginboxhead">for our beta version today! </p>
+          <% flash.each do |message_type, message| %>
+            <div class="alert alert-<%= message_type %>"><p><%= message %></p></div>
+          <% end %>
         </div>
         <div class = "signupform">
-          <% flash.each do |message_type, message| %>
-            <div class="alert alert-<%= message_type %>"><%= message %></div>
-          <% end %>
           <%= render 'signup' %>
         </div>
       </div>

@@ -17,6 +17,7 @@ class Email < ActiveRecord::Base
 
 	validates :zipcode,
 		presence: {message: "is missing"},
+		format: {with: /\d+/, message: "is not valid"},
 		length: {is: 5, message: "is not valid"},
 		on: :second
 

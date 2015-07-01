@@ -23,14 +23,15 @@
         <div class = "loginhead">
           <p class = "loginboxhead head">Thanks!</p>
           <p class = "loginboxhead">We just need a bit more information about you! </p>
+          <% flash.each do |message_type, message| %>
+            <div class="alert alert-<%= message_type %>"><%= message %></div>
+          <% end %>
         </div>
         <div class = "signupform">
 
               <div class = "logincontent">
 
-                <% flash.each do |message_type, message| %>
-                  <div class="alert alert-<%= message_type %>"><%= message %></div>
-                <% end %>
+
                 <div class="logininputs">
                   <%= form_for(@email, :url => wizard_path, :method => :put) do |f| %>
                   <div class = "form-group">
