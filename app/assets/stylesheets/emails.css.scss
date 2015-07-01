@@ -8,6 +8,7 @@ $textred: #C35A62;
 *********/
 
 #homeheader {
+  position: fixed;
   float: left;
   height: 100%;
   width: 100%;
@@ -27,6 +28,14 @@ $textred: #C35A62;
   }
   @media screen and (min-width: 1140px) {
     background: url('Landing.jpg') no-repeat center center fixed;
+  }
+  @media screen and (min-width: 1900px) {
+    background: url('Landing.jpg') no-repeat fixed;
+    background-size: 100%;
+  }
+  @media screen and (min-height: 960px) {
+    background: url('Landing.jpg') no-repeat fixed;
+    background-size: 100%;
   }
   .homeheaderlogo {
     @include col(1/4);
