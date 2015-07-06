@@ -8,7 +8,11 @@ class EmailStepsController < ApplicationController
   end
 
   def update
-    @email = Email.find_by(session[:id])
+    @email = Email.find(session[:id])
+    puts session[:id]
+    puts @email
+    puts @email.email
+    puts "TESTSTSINTSDEBUG"
     @email.update_attributes(info_params)
     if @email.valid?(:second)
       render 'emails/refer'
