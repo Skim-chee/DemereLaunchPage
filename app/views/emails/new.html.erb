@@ -7,27 +7,28 @@
   <!--  Home Section-->
 
   <div id = "homeheader">
-    <p class = "homeheaderlogo">demere</p>
+    <div class = "home-top-bar">
+      <span class = "homeheaderlogo">demere</span>
+    </div>
     <div class = "hometitle">
       <p>DRESS WITH CONFIDENCE</p>
     </div>
 
     <div class = "signupcontain">
       <div class = "homesignup">
-
-
-
         <div class = "signupbox">
         </div>
-        <div class = "loginhead">
-          <p class = "loginboxhead head">Sign up</p>
-          <p class = "loginboxhead">for our beta version today! </p>
-          <% flash.each do |message_type, message| %>
-            <div class="alert alert-<%= message_type %>"><p><%= message %></p></div>
-          <% end %>
-        </div>
-        <div class = "signupform">
-          <%= render 'signup' %>
+        <div class = "signupcontent">
+          <div class = "loginhead">
+            <p class = "loginboxhead head">Sign up</p>
+            <p class = "loginboxhead">for our beta version today! </p>
+            <% flash.each do |message_type, message| %>
+            <div class="alert <%= message_type %>"><p><%= message %></p></div>
+            <% end %>
+          </div>
+          <div class = "signupform">
+            <%= render 'signup' %>
+          </div>
         </div>
       </div>
     </div>
@@ -38,11 +39,11 @@
   <div id = "homeinfo">
     <div class = "infosection">
       <h1 class = "infohead">Build Your Closet</h1>
-      <p class = "infobody">Take pictures, using your phone or camera, of your clothing and accessories and upload them to your virtual closet. </p>
+      <p class = "infobody"> Take pictures of your clothing and accessories and upload them to your virtual closet. </p>
     </div>
     <div class = "infosection infoleft">
       <h1 class = "infohead">Create an Outfit</h1>
-      <p class = "infobody">Create customized outfits that are enhanced by our suggestions in seconds.</p>
+      <p class = "infobody"> Create customized outfits enhanced by our suggestions in seconds.</p>
     </div>
     <div class = "infosection infoleft">
       <h1 class = "infohead">Get Suggestions</h1>

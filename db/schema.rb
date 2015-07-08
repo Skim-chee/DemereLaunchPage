@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150701210541) do
+ActiveRecord::Schema.define(version: 20150707185553) do
 
   create_table "emails", force: :cascade do |t|
     t.string  "email",               limit: 255
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20150701210541) do
     t.integer "referrer_id",         limit: 4
     t.string  "name",                limit: 255
     t.string  "zipcode",             limit: 255
+    t.boolean "visited",             limit: 1,   default: false
   end
 
   create_table "ip_addresses", force: :cascade do |t|

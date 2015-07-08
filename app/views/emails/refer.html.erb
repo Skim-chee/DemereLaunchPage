@@ -3,28 +3,30 @@
 
 <div class = "refer helper">
 </div>
-<%= link_to "demere", root_path, class: "loginlogo" %>
+  <%= link_to "demere", root_path, class: "homeheaderlogo logobutton" %>
 <div class = "wrapper">
 	<div class = "signup-block">
 		<div class = "signup-box"></div>
-		<div class = "signup-header">
-			<div class = "content">
-				<p class = "signup-thanks"> Invite friends and earn rewards with</p>
-				<p class = "signup-thanks"> your personal referral code below. </p>
-			</div>
-		</div>
-
-		<div class = "signup-body">
-			<div class = "copy-link">
-				<p class = "referral"><%= root_url %>?ref=<%= @email.referral_code %></p>
+		<div class = "signup-content">
+			<div class = "signup-header">
+				<div class = "content">
+					<p class = "signup-thanks"> Invite friends and earn rewards with</p>
+					<p class = "signup-thanks"> your personal referral code below. </p>
+				</div>
 			</div>
 
-			<!-- Tweet message when shared  -->
-			<% tweet = "The next big thing is here...@DemereApp has launched for signups! Use my referral code and discover it for yourself!" %>
+			<div class = "signup-body">
+				<div class = "copy-link">
+					<p class = "referral"><%= root_url %>?ref=<%= @email.referral_code %></p>
+				</div>
 
-			<div class = "social-links">
-				<a href="http://www.facebook.com/sharer/sharer.php?u=<%= CGI::escape(root_url) %>?ref=<%= CGI::escape(@email.referral_code) %>&title=Demer" class="fb" target="_blank"></a>
-				<a href="http://twitter.com/share?url=<%= CGI::escape(root_url) %>?ref=<%= CGI::escape(@email.referral_code) %>&text=<%= CGI::escape(tweet) %>" class="twit" target="_blank"></a>
+				<!-- Tweet message when shared  -->
+				<% tweet = "The next big thing is here...@DemereApp has launched for signups! Use my referral code and discover it for yourself!" %>
+
+				<div class = "social-links">
+					<a href="http://www.facebook.com/sharer/sharer.php?u=<%= CGI::escape(root_url) %>?ref=<%= CGI::escape(@email.referral_code) %>&title=Demer" class="fb" target="_blank"></a>
+					<a href="http://twitter.com/share?url=<%= CGI::escape(root_url) %>?ref=<%= CGI::escape(@email.referral_code) %>&text=<%= CGI::escape(tweet) %>" class="twit" target="_blank"></a>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -49,7 +51,11 @@ stops.reverse_each { |stop|
 
 
 <div class = "rewards-block-inner">
+	<% if @email.visited %>
+	<p class = "signup-logo">Welcome back! Now share with your friends!</p>
+	<% else %>
 	<p class = "signup-logo">Thank you for signing up! Now share with your friends!</p>
+	<% end %>
 	<p class = "signup-sub">Each friend you refer earns you one raffle ticket for a chance to win a pair of Ray-Bans!</p>
 	<div class = "refer-count">
 		You have invited <span class = "refer-count-number"><%= refer_count%></span>

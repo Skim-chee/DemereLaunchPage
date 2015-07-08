@@ -3,14 +3,62 @@
 $red: #B5313B;
 $textred: #C35A62;
 
+*::selection { background-color: $textred !important; ;}
+*::-webkit-selection { background-color: $textred !important; ;}
+*::-moz-selection { background-color: $textred !important; ;}
+
+.alert{
+  top: -20px;
+  position:absolute;
+  text-align: center;
+  width: 100%;
+  height: 120px;
+  background-color: $textred;
+
+  p {
+    margin: 0 auto;
+    width: 90%;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    top: 50%;
+    margin-top: 10%;
+  }
+
+  .stepserror {
+    line-height: 120px;
+    margin-top: 0%;
+  }
+}
+
+.homeheaderlogo {
+  @include col(1/4);
+  margin-top: 17.5px;
+  position: absolute;
+  margin-left: 10%;
+
+  font-family: 'Roboto', sans-serif;
+  color: $red;
+  font-size: 25px;
+  opacity: 0.9;
+  letter-spacing: 3px;
+  text-decoration: none;
+  font-weight: 400;
+}
+.logobutton {
+  &:hover {
+    opacity: 0.5;
+  }
+}
 /*********
 **Header**
 *********/
 
+
 #homeheader {
   position: fixed;
   float: left;
-  height: 100%;
+  height: 90%;
   width: 100%;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -20,76 +68,64 @@ $textred: #C35A62;
   font-family: 'Roboto', sans-serif;
 
   @media screen and (max-width: 480px) {
-    background: url("LandingSmall.jpg") no-repeat center center fixed;
-
+    background: url("LandingSmall.jpg") no-repeat center center;
   }
   @media screen and (min-width: 480px) {
-    background: url('LandingMed.jpg') no-repeat center center fixed;
+    background: url('LandingMed.jpg') no-repeat center center;
   }
   @media screen and (min-width: 1140px) {
-    background: url('Landing.jpg') no-repeat center center fixed;
+    background: url('Landing.jpg') no-repeat center center;
   }
   @media screen and (min-width: 1900px) {
-    background: url('Landing.jpg') no-repeat fixed;
+    background: url('Landing.jpg') no-repeat;
     background-size: 100%;
   }
   @media screen and (min-height: 960px) {
-    background: url('Landing.jpg') no-repeat fixed;
+    background: url('Landing.jpg') no-repeat;
     background-size: 100%;
   }
-  .homeheaderlogo {
-    @include col(1/4);
-    margin: 0;
-    padding: 20px 35px;
-    position: absolute;
-
-    font-family: 'Roboto', sans-serif;
-    color: $red;
-    font-size: 25px;
-    opacity: 0.8;
-    letter-spacing: 3px;
+  .home-top-bar {
+    background-color: #fff;
+    height: 60px;
   }
-
   .homelogin{
-    @include col(3/4);
+    @include col(1);
     float: right;
 
     .loginbutton{
+
       float: right;
       border: none;
       height:75px;
       line-height: 70px;
-      width:150px;
       text-align: center;
-
-      background-color: #cecccc;
       opacity: 0.8;
       font-family: inherit;
-      font-weight: 100;
-      font-size: 30px;
-      color: #000;
+      font-weight: 300;
+      font-size: 20px;
+      color: $red;
       text-decoration: none;
-
+      margin-right: 11%;
       &:hover {
-        color: #FFF;
+        color: #c9c9c9;
       }
-
     }
   }
 
   .hometitle{
+    margin-top: 50px;
     @include col(1/3);
     margin-left: 10%;
     @media screen and (max-width: 780px) {
       margin-top: 50px;
     }
     @media screen and (max-width: 480px) {
-      @include col(1);
+      visibility: hidden;
     }
     p {
       font-weight: 700;
       font-size: 5vw;
-      text-shadow: 3.5px 3px #afafaf;
+      line-height: 5vw;
       @media screen and (max-width: 480px) {
         font-size: 8vw;
       }
@@ -100,13 +136,14 @@ $textred: #C35A62;
     float: right;
     height:	325px;
     width: 275px;
-    margin-top: 15%;
-    margin-right: 10%;
+    margin-top: 10%;
+    margin-right: 5%;
     @media screen and (max-width: 480px) {
       @include col(1);
       margin: 0;
       bottom: 0;
       position: absolute;
+      height: calc(100% - 60px);
     }
     .homesignup{
       width: 275px;
@@ -115,40 +152,35 @@ $textred: #C35A62;
       @media screen and (max-width: 480px) {
         @include col(1);
         bottom: 0;
+        height: 100%;
       }
       .signupbox{
         position: absolute;
         height: 325px;
         width: 275px;
-        background: #EFEFEF;
-        opacity: 0.5;
+        background: #c9c9c9;
+        opacity: 0.65;
         @media screen and (max-width: 480px) {
           @include col(1);
           bottom: 0;
+          opacity: 0.75;
+          height: 100%;
+        }
+      }
+      .signupcontent{
+        width: inherit;
+        text-align: center;
+        padding-top: 20px;
+        height: 100%;
+        @media screen and (max-width: 480px) {
+          bottom: 0;
+          position: absolute;
         }
       }
       .loginhead{
         text-align: center;
-        .alert{
-          margin: 0 auto;
-          top: 0;
-          left: 0;
-          right: 0;
-          position:absolute;
-          text-align: center;
-          width: 100%;
-          height: 125px;
-          background-color: $textred;
-          font-family: 'Roboto', sans-serif;
-          font-weight: 300;
-          font-size: 28px;
-
-          p {
-            margin: 20px auto;
-            vertical-align: middle;
-            display: inline-block;
-          }
-        }
+        position: relative;
+        height: 25%;
 
         .loginboxhead{
           font-size: 16px;
@@ -165,16 +197,22 @@ $textred: #C35A62;
         }
         .head{
           margin-top: 15px;
-          font-size: 50px;
-          font-weight: 700;
+
+          margin-bottom: 15px;
+          font-size: 45px;
+          font-weight: 500;
           color: $red;
-          opacity: 0.8;
           @include col(1);
+          @media screen and (max-width: 480px) {
+            margin-top: 40px;
+          }
         }
       }
       .signupform{
-        position: absolute;
-        bottom: 0;
+        height: 75%;
+        position: relative;
+        margin-top: 25px;
+        padding-top: 25px;
         width: inherit;
         text-align: center;
         margin: 0 auto;
@@ -184,15 +222,22 @@ $textred: #C35A62;
         input:-webkit-autofill:active {
           transition: background-color 50000s ease-in-out 0s;
         }
+        form {
+          height: inherit;
+        }
+        .form-submit{
+          position: absolute;
+          bottom: 75px;
+          width: 100%;
+        }
         .form-group{
-          width:90%;
+          width:70%;
           font-size: 32px;
-          color: #848383;
+          color: #000 !important;
           font-weight: 300;
-          line-height: 0px;
-          margin: 0 5%;
-          margin-top: 0%;
-          border-bottom: 2px solid $red;
+          margin: 0 auto;
+          margin-top: 7.5%;
+
           ::-webkit-input-placeholder {
             color: #f4f4f4;
           }
@@ -205,41 +250,36 @@ $textred: #C35A62;
           :-ms-input-placeholder {
             color: #f4f4f4;
           }
+        }
+        .form-multi {
+          margin-top: -15px;
 
         }
+        .placehold-text{
+          color: #fff;
+          font-size: 18px;
+        }
+        .is-focused {
+          label {
+            visibility: hidden;
+          }
+        }
         .loginbutton {
-          margin-top: 30px;
-          margin-bottom: 30px;
-
+          position: relative;
+          margin: 0 auto;
           border: none;
-          height:75px;
+          height:40px;
           width:150px;
           background-color: $red;
           opacity: 0.8;
 
           font-family: 'Roboto', sans-serif;
           font-weight: 100;
-          font-size: 30px;
+          font-size: 15px;
           color: #FFF;
 
-
           &:hover {
-            color: #000;
-          }
-        }
-        .email {
-          line-height: 30px;
-          margin-left: 0px;
-          border: none;
-          outline: none;
-          background: none;
-          width: 90%;
-
-          font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-          font-weight: 200;
-          font-size: 22px;
-          .form-control{
-            border-bottom: 1px solid #C25961;
+            background-color: #9B2E35;
           }
         }
       }
@@ -254,9 +294,9 @@ $textred: #C35A62;
 #homeinfo{
   float: left;
   width: 100%;
-  height: 250px;
+  height: 215px;
   position: relative;
-  margin-top: 50px;
+  margin-top: 15px;
   @media only screen and (max-width:985px) {
     height: 660px;
     display: block;
@@ -267,7 +307,7 @@ $textred: #C35A62;
   .infosection {
     @include col(1/3);
     margin-right: 2%;
-    height: 220px;
+    height: 200px;
     @media only screen and (max-width:985px) {
       @include col(1);
     }
@@ -324,7 +364,7 @@ $textred: #C35A62;
   .infopara, .infoparahead{
     margin: 0 auto;
     position: relative;
-    width: 70%;
+    width: 80%;
     top: 20%;
     font-family: 'Roboto', sans-serif;
     font-size: 22px;
@@ -350,19 +390,18 @@ $textred: #C35A62;
     border: none;
     height:75px;
     width:150px;
-    background-color: $red;
     opacity: 0.8;
-
     font-family: 'Roboto', sans-serif;
-    font-weight: 100;
-    font-size: 30px;
-    color: #FFF;
+    font-weight: 300;
+    font-size: 20px;
+    background-color: transparent;
+    color: $red;
     visibility: hidden;
     @media only screen and (max-width:920px) {
       visibility: visible;
     }
     &:hover {
-      color: #000;
+      color: #fff;
     }
   }
 }
@@ -381,12 +420,10 @@ $textred: #C35A62;
     width:150px;
     background-color: $red;
     opacity: 0.8;
-
     font-family: 'Roboto', sans-serif;
     font-weight: 100;
     font-size: 30px;
     color: #FFF;
-
 
     &:hover {
       color: #000;

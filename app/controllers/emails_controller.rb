@@ -5,24 +5,25 @@ class EmailsController < ApplicationController
 	end
 
 	def create
+		@email = Email.find_by(email_params)
 		@em = Email.new(email_params)
-		if @em.valid?(:first)
-			@email = Email.find_by(email_params)
+
+		if !@email and @em.valid?(:first)
 			current_ip = IpAddress.find_by_address(request.remote_ip)
 
 			if !current_ip
 				current_ip = IpAddress.create(
-					:address => request.remote_ip,
-					:count => 0
+				:address => request.remote_ip,
+				:count => 0
 				)
 			end
 
 			if current_ip.count > 9
-				flash[:danger] = "Too many accounts are already linked to this ip address"
+				flash[:alert] = "Too many accounts are already linked to this ip address"
 				return redirect_to root_url
 			else
-			current_ip.count = current_ip.count + 1
-			current_ip.save
+				current_ip.count = current_ip.count + 1
+				current_ip.save
 			end
 
 			if current_ip.count < 10
@@ -38,31 +39,24 @@ class EmailsController < ApplicationController
 			if !@referred_by.nil?
 				@em.referrer = @referred_by
 			end
-		else
-			puts "TESTING ERRORR"
-			if @em.errors.any?
-				flash[:danger] = @em.errors.full_messages.first
-			end
-			return redirect_to root_url
-		end
-		# @email = Email.new(email_params)
-		# If new email is input and saved, send confirmation email,
-		# flash success message, and redirect to home page
-		if !@email
+
+			# If new email is input and saved, send confirmation email,
+			# flash success message, and redirect to home page
 			# @email.send_confirmation
-				@em.save
-				session[:id] = @em.id
-				puts "THIS MAH SESSION ID"
-				puts session[:id]
-				return redirect_to email_steps_path
+			@em.save
+			session[:id] = @em.id
+			puts "THIS MAH SESSION ID"
+			puts session[:id]
+			return redirect_to email_steps_path
 		end
 
 		if @email
 			cookies[:h_email] = { :value => @email.email}
 			puts "SUCCESSSSSS"
+			@email.update(visited: true)
 			render 'emails/refer'
 		else
-			flash[:alert] = "Something went wrong!"
+			flash[:alert] = "Please enter a valid email address"
 			puts "FAILUREEEEEE"
 			redirect_to root_url
 		end

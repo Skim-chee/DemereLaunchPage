@@ -8,42 +8,46 @@
   <!--  Home Section-->
 
   <div id = "homeheader">
-    <%= link_to "demere", root_path, class: "loginlogo" %>
+
+    <div class = "home-top-bar">
+      <%= link_to "demere", root_path, class: "homeheaderlogo logobutton" %>
+    </div>
     <div class = "hometitle">
       <p>DRESS WITH CONFIDENCE</p>
     </div>
 
     <div class = "signupcontain">
       <div class = "homesignup">
-
-
-
         <div class = "signupbox">
         </div>
-        <div class = "loginhead">
-          <p class = "loginboxhead head">Thanks!</p>
-          <p class = "loginboxhead">We just need a bit more information about you! </p>
-          <% flash.each do |message_type, message| %>
-            <div class="alert alert-<%= message_type %>"><%= message %></div>
-          <% end %>
-        </div>
-        <div class = "signupform">
-              <div class = "logincontent">
-                <div class="logininputs">
-                  <%= form_for(@email, :url => wizard_path, :method => :put) do |f| %>
-                  <div class = "form-group">
-                    <%= f.text_field :name, placeholder: "name", label: false, autofocus: true, class: 'name'%>
-                  </div>
-                  <div class = "form-group">
-                    <%= f.text_field :zipcode, placeholder: "zipcode",label: false, class: 'zip'%>
-                  </div>
-
-                  <div class = "loginactions login">
-                    <button class = "loginbutton">next</button>
-                  </div>
-                  <% end %>
+        <div class = "signupcontent">
+          <div class = "loginhead">
+            <p class = "loginboxhead head">Thanks!</p>
+            <p class = "loginboxhead">We just need a bit more information about you! </p>
+            <% flash.each do |message_type, message| %>
+            <div class="alert <%= message_type %>"><p class = "stepserror"><%= message %></p></div>
+            <% end %>
+          </div>
+          <div class = "signupform">
+            <div class = "logincontent">
+              <div class="logininputs">
+                <%= form_for(@email, :url => wizard_path, :method => :put) do |f| %>
+                <div class = "form-group mdl-textfield mdl-js-textfield textfield-demo form-multi">
+                  <%= f.text_field :name, label: false, class: 'mdl-textfield__input'%>
+                  <label class="mdl-textfield__label placehold-text" for="sample1">name</label>
                 </div>
+                <div class = "form-group mdl-textfield mdl-js-textfield textfield-demo form-multi">
+                  <%= f.text_field :zipcode,label: false, class: 'mdl-textfield__input'%>
+                  <label class="mdl-textfield__label placehold-text" for="sample1">zip code</label>
+                </div>
+
+                <div class = "form-submit">
+                  <button class = "loginbutton">next</button>
+                </div>
+                <% end %>
               </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -54,11 +58,11 @@
   <div id = "homeinfo">
     <div class = "infosection">
       <h1 class = "infohead">Build Your Closet</h1>
-      <p class = "infobody">Simply take pictures, using your phone or camera, of your articles of clothing and accessories and upload them to your virtual closet. </p>
+      <p class = "infobody"> Take pictures of your clothing and accessories and upload them to your virtual closet. </p>
     </div>
     <div class = "infosection infoleft">
       <h1 class = "infohead">Create an Outfit</h1>
-      <p class = "infobody">Create outfits that are enhanced by our suggestions.</p>
+      <p class = "infobody"> Create customized outfits enhanced by our suggestions in seconds.</p>
     </div>
     <div class = "infosection infoleft">
       <h1 class = "infohead">Get Suggestions</h1>

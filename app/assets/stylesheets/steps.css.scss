@@ -5,7 +5,6 @@
 @import 'jeet/index';
 $red: #C35A62;
 .form-group {
-  border-bottom: 2px solid $red;
   margin-top: 15px;
   .name, .zip {
     line-height: 30px;
@@ -37,24 +36,6 @@ $red: #C35A62;
       height: 100%;
       margin: 0 auto;
       border-bottom: 1px solid #000;
-    }
-  }
-
-  .loginlogo{
-    @include col(1/10);
-    height:15px;
-    margin: 0;
-    padding: 20px 35px;
-    position: absolute;
-    text-decoration: none;
-
-    font-family: 'Roboto', sans-serif;
-    color: $red;
-    font-size: 25px;
-    opacity: 0.8;
-    letter-spacing: 3px;
-    &:hover {
-      opacity: 0.5;
     }
   }
 }
