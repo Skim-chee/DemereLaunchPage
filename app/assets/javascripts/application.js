@@ -17,7 +17,7 @@
 
 var $win = $(window);
 
-$(function() {
+$(document).ready(function() {
   $('#sign-up-button').click( function() {
     $('html, body').animate({
       scrollTop: $(".wrapper").offset().top
@@ -29,7 +29,15 @@ if(window.innerWidth <= 600) {
   var bg = jQuery("body");
   jQuery(window).resize("resizeBackground");
   function resizeBackground() {
-      bg.height(jQuery(window).height());
+    bg.height(jQuery(window).height());
   }
   resizeBackground();
 }
+
+
+
+$(document).ready(function() {
+  if(screen.height <= 720) {
+    document.getElementById('homeheader').height = 0.9 * screen.height;
+  }
+});

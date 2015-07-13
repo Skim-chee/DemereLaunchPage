@@ -1,4 +1,5 @@
 class EmailsController < ApplicationController
+	before_action :skip_first_page, only: :new
 
 	def new
 		@email = Email.new
@@ -42,7 +43,11 @@ class EmailsController < ApplicationController
 
 			# If new email is input and saved, send confirmation email,
 			# flash success message, and redirect to home page
-			# @email.send_confirmation
+			#
+			# @em.send_confirmation
+			cookies[:h_email] = {:value => @em.email}
+			puts cookies[:h_email]
+			puts "COOKIE"
 			@em.save
 			session[:id] = @em.id
 			puts "THIS MAH SESSION ID"
@@ -92,11 +97,15 @@ class EmailsController < ApplicationController
 	end
 
 	def skip_first_page
-		email = cookies[:h_email]
-		if email and Email.find_by_email(email)
-			redirect_to '/refer'
-		else
-			cookies.delete :h_email
-		end
+		if !Rails.application.config.ended
+            @email = Email.find_by_email(cookies[:h_email])
+						puts @email
+						puts "POOP"
+            if @email and !Email.find_by_email(@email).nil?
+                return render 'emails/refer'
+            else
+                cookies.delete :h_email
+            end
+        end
 	end
 end

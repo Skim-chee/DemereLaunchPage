@@ -56,8 +56,7 @@ class Email < ActiveRecord::Base
 
 	# Sets Email's email_confirmation_token to a random token for use in activating ones email
 	def send_confirmation
-		self.update_column(:email_confirm_token, SecureRandom.urlsafe_base64)
-		ConfMailer.send_confirmation_mail(self).deliver
+		WelcomeMailer.welcome_email(self).deliver
 	end
 
 	private
