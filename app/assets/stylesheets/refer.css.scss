@@ -25,8 +25,10 @@ $red: #C35A62;
     animation: fadein 2s;
     background-size: cover;
     background-repeat: no-repeat;
+    min-height: 650px;
     @media screen and (max-width: 480px) {
     	background-image: image-url('ReferBackSmall.jpg');
+        min-height: 525px;
     }
     @media screen and (min-width: 480px) {
     	background-image: image-url('ReferBackMed.jpg');
@@ -48,13 +50,14 @@ $red: #C35A62;
 }
 
 .signup-block {
-	position: absolute;
-	text-align: center;
-	right: 0px;
-	bottom: 0px;
-	height: 300px;
-	width: 300px;
-	overflow: hidden;
+    position: relative;
+    float: right;
+    text-align: center;
+    right: 0px;
+    bottom: 0px;
+    min-height: 300px;
+    width: 400px;
+
 	-webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
     -moz-animation: fadein 2s; /* Firefox < 16 */
     -ms-animation: fadein 2s; /* Internet Explorer */
@@ -66,6 +69,7 @@ $red: #C35A62;
     	height: 250px;
     	right: 0px;
     	bottom: 0px;
+        margin-top: 225px;
     }
     @media only screen and (max-height:860px) {
     	bottom: 0;
@@ -73,9 +77,11 @@ $red: #C35A62;
     }
     @media only screen and (min-width:480px) {
     	height: 45%;
+        margin-top: 300px;
     }
     @media only screen and (min-width:960px) {
     	height: 45%;
+        margin-top: 350px;
     }
     .signup-content {
     	padding-top: 25px;
@@ -85,16 +91,16 @@ $red: #C35A62;
     	position: absolute;
     	width: 100%;
     	height: 100%;
-    	background: #c9c9c9;
-    	opacity: 0.5;
+    	background: #7f7f7f;
+    	opacity: 0.1;
     	pointer-events: none;
     }
 
     .signup-thanks {
     	font-family: 'Roboto', sans-serif;
-    	font-weight: 500;
-    	color: #000;
-    	font-size: 15px;
+    	font-weight: 500 !important;
+    	color: #bf2227;
+    	font-size: 20px;
     	line-height: 20px;
     	text-align: center;
     	@media only screen and (max-width:480px) {
@@ -114,15 +120,18 @@ $red: #C35A62;
     	margin-right:auto;
     	margin-top: 25px;
     	p {
-    		font-size: 11px;
-    	}
-    	.referral {
-    		border-bottom: 2px solid $red;
-    		width: 80%;
-    		text-align: center;
-    		margin: 7px auto;
-    	}
-    }
+    		font-size: 15px;
+            @media only screen and (max-width:480px) {
+                font-size: 12px;
+            }
+        }
+        .referral {
+          border-bottom: 2px solid $red;
+          width: 80%;
+          text-align: center;
+          margin: 7px auto;
+      }
+  }
 }
 
 .rewards-block-inner {
