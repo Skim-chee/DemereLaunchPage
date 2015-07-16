@@ -24,7 +24,7 @@ class Email < ActiveRecord::Base
 	validates :referral_code,
 	uniqueness: true
 
-	before_create :create_referral_code
+	
 	# Array of hashes describing the reward levels for referring friends
 	REFERRAL_STEPS = [
         {
@@ -59,8 +59,7 @@ class Email < ActiveRecord::Base
 		WelcomeMailer.welcome_email(self).deliver
 	end
 
-	private
-	# Generates unique referall code for Email
+	   # Generates unique referall code for Email
     def create_referral_code
         referral_code = SecureRandom.hex(5)
         @collision = Email.find_by_referral_code(referral_code)
