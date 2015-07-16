@@ -3,7 +3,7 @@ Rails.application.configure do
 
 
   #### Sets default email to send out notices such as confirmations etc. ####
-  config.action_mailer.default_url_options = { :host => 'demer.co' }
+  config.action_mailer.default_url_options = { :host => 'demere.co' }
 
   # Code is not reloaded between requests.
   config.cache_classes = true
