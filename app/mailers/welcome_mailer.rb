@@ -1,5 +1,5 @@
 class WelcomeMailer < ApplicationMailer
-	default from: "team@demere.co"
+	default from: "demere@demere.co"
 
 	def welcome_email(email)
 		@email = email
