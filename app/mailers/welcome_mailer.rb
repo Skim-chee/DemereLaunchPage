@@ -1,5 +1,6 @@
-class WelcomeMailer < ApplicationMailer
+class WelcomeMailer < ActionMailer::Base
 	default from: "demere@demere.co"
+	layout 'welcome_mailer'
 
 	def welcome_email(email)
 		@email = email
