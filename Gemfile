@@ -31,6 +31,10 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'tzinfo-data'
 
+gem 'resque' 
+gem 'resque_mailer'
+gem 'resque-scheduler'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

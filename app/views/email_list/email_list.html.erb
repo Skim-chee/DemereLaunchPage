@@ -35,6 +35,9 @@
 				<td>
 					<%= email.referrals.count %>
 				</td>
+				<td>
+					<%= root_url %>?ref=<%= email.referral_code %>
+				</td>
 			</tr>
 			<% end %>
 		</table>
