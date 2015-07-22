@@ -4,6 +4,7 @@
 */
 
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,100,300,700,900,500);
+@import url(http://fonts.googleapis.com/css?family=Lato:400,100,300);
 
 /**********
 **General**
@@ -35,8 +36,8 @@ body, html {
   width: 100%;
   text-align: center;
   background-color: #EFEFEF;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 100;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
   border-top: 5px solid #C35A62;
   opacity: 1.0;
 }
@@ -54,7 +55,7 @@ body, html {
   top: 30px;
   margin: 0 auto;
   line-height: 25px;
-  font-weight: 200;
+  font-weight: 300;
 
   text-decoration: none;
   color: #000;

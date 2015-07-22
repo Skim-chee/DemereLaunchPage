@@ -196,9 +196,6 @@ $textred: #C35A62;
           margin: 0 auto;
         }
         .head{
-          margin-top: 15px;
-
-          margin-bottom: 15px;
           font-size: 45px;
           font-weight: 500;
           color: $red;
@@ -328,8 +325,8 @@ $textred: #C35A62;
     .infobody{
       width: 80%;
       margin: 0 auto;
-      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      font-weight: 100;
+      font-family: 'Lato', sans-serif;
+      font-weight: 300;
       font-size: 22px;
     }
   }
@@ -384,8 +381,8 @@ $textred: #C35A62;
     @media only screen and (max-width:920px) {
       visibility: hidden;
     }
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-weight: 100;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
   }
   .infomodal{
     position: absolute;
