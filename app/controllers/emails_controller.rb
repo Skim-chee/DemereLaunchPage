@@ -1,5 +1,6 @@
 class EmailsController < ApplicationController
 	before_action :skip_first_page
+	
 
 	def new
 		@email = Email.new
