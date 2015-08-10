@@ -20,7 +20,7 @@ class EmailsController < ApplicationController
 				)
 			end
 
-			if current_ip.count > 9
+			if current_ip.count > 15
 				flash[:alert] = "Too many accounts are already linked to this ip address"
 				return redirect_to root_url
 			else
@@ -28,7 +28,7 @@ class EmailsController < ApplicationController
 				current_ip.save
 			end
 
-			if current_ip.count < 10
+			if current_ip.count < 15
 				@referred_by = Email.find_by_referral_code(cookies[:h_ref])
 			end
 
