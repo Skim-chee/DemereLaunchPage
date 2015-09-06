@@ -11,18 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150707185553) do
+ActiveRecord::Schema.define(version: 20150906053542) do
 
   create_table "emails", force: :cascade do |t|
-    t.string  "email",               limit: 255
-    t.boolean "activated",           limit: 1
-    t.integer "position",            limit: 4
-    t.string  "email_confirm_token", limit: 255
-    t.string  "referral_code",       limit: 255
-    t.integer "referrer_id",         limit: 4
-    t.string  "name",                limit: 255
-    t.string  "zipcode",             limit: 255
-    t.boolean "visited",             limit: 1,   default: false
+    t.string   "email",               limit: 255
+    t.boolean  "activated",           limit: 1
+    t.integer  "position",            limit: 4
+    t.string   "email_confirm_token", limit: 255
+    t.string   "referral_code",       limit: 255
+    t.integer  "referrer_id",         limit: 4
+    t.string   "name",                limit: 255
+    t.string   "zipcode",             limit: 255
+    t.boolean  "visited",             limit: 1,   default: false
+    t.datetime "created_at"
   end
 
   create_table "ip_addresses", force: :cascade do |t|

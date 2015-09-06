@@ -46,6 +46,7 @@ class EmailsController < ApplicationController
 			# flash success message, and redirect to home page
 			#
 			@em.create_referral_code
+			@em.created_at = Date.today
 			@em.send_confirmation
 			cookies[:h_email] = {value: @em.email, expires: 1.day.from_now}
 			puts cookies[:h_email]
