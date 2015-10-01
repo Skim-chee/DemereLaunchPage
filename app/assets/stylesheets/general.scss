@@ -137,7 +137,7 @@ $desktop-width: 1024px;
 }
 
 @mixin desktop {
-  @media only screen and (min-width: #{$desktop-width}) {
+  @media only screen and (min-width: #{$desktop-width})  and (-webkit-min-device-pixel-ratio: 1) {
     @content;
   }
 }
