@@ -1,10 +1,11 @@
 <%= form_for(@email) do |f| %>
-<div class = "form-group mdl-textfield mdl-js-textfield textfield-demo">
-  <%= f.text_field :email,:class => " mdl-textfield__input"%>
-  <label class="mdl-textfield__label placehold-text" for="sample1">email address</label>
-</div>
+<div class = "flex-form">
+  <div class="form-group">
+		<%= f.text_field :email, required: true, placeholder: "email address",  class: "index-form", autocomplete: 'off'%>
+	</div>
 
-<div class = "form-submit">
-  <button class = "loginbutton">next</button>
+  <div class = "form-submit">
+    <button class = "btn-sm">next</button>
+  </div>
 </div>
 <% end %>

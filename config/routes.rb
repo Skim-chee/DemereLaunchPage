@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   get 'createOutfit' => 'articles#make_outfit'
 
+  post 'email_list' => 'email_list#custom_mail_btn'
+
   # get 'account_confirmation', to: 'emails#account_confirmation'
 
   resources :emails

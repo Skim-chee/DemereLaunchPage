@@ -58,6 +58,11 @@ class Email < ActiveRecord::Base
 		WelcomeMailer.welcome_email(self).deliver
 	end
 
+    def send_custom_mail
+        CustomMailer.custom_email(self).deliver
+    end
+
+
 	   # Generates unique referall code for Email
     def create_referral_code
         referral_code = SecureRandom.hex(5)

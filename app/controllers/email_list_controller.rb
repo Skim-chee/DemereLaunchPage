@@ -10,4 +10,11 @@ class EmailListController < ApplicationController
 	def email_list
 		@email_list = Email.all
 	end
+
+	def custom_mail_btn
+		Email.all.each do |e|
+			e.send_custom_mail
+		end
+		 render :nothing => true
+	end
 end

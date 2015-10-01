@@ -1,0 +1,216 @@
+/*************************************************************
+ *  Stylesheet for all generic elements (ex. p, img, a etc.) *
+ *************************************************************/
+
+p {
+  color: #000;
+  margin: 0;
+  &:visited { text-decoration: none; color: #000;}
+  &:hover { text-decoration: none; color: #000;}
+  &:focus { text-decoration: none; color: #000;}
+}
+
+h1 {
+
+}
+
+
+/*********************************
+ *  Controls sitewide CSS resets *
+ *********************************/
+
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+}
+
+// Sets all the text to black as default
+* { text-decoration: none; color: #000;}
+*:visited { text-decoration: none; color: #000;}
+*:hover { text-decoration: none; color: #000;}
+*:focus { text-decoration: none; color: #000;}
+*:hover, .navBtn:active { text-decoration: none; color: #000;}
+
+body, html {
+  width: 100%;
+  height: 100%;
+
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+
+  background-color: #FFFFFF;
+
+  margin: 0;
+}
+
+/******************
+ *  BRAND COLOURS *
+ ******************/
+
+
+//DEMERE RED
+$red-main: rgb(188, 66, 66);
+
+//
+
+$grey: rgb(150, 150, 150);
+$dark-grey: rgb(100, 100, 100);
+
+// Text
+$color-text-def: rgb(75, 75, 75);
+
+// TEMP
+$textred: #C35A62;
+$darkred:  #9B2E35;
+$truered: #ba4a4e;
+
+
+/************
+ * Display  *
+ * 	- Flex  *
+ ************/
+
+// Creates flexbox layout
+@mixin flexbox() {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+/**
+ * flex: flex-grow, flex-shrink, flex-basis
+ * default: 0 1 auto
+ */
+@mixin flex($val) {
+  -webkit-box-flex: $val;
+  -moz-box-flex:  $val;
+  -webkit-flex:  $val;
+  -ms-flex:  $val;
+  flex:  $val;
+}
+
+// Determines what order the flex item is displayed in
+@mixin order($val) {
+  -webkit-box-ordinal-group: $val;
+  -moz-box-ordinal-group: $val;
+  -ms-flex-order: $val;
+  -webkit-order: $val;
+  order: $val;
+}
+
+
+/************************
+ * Screen               *
+ * 		- Media Queries   *
+ * 		- Retina Display  *
+ ************************/
+
+// Media Queries
+
+/**************************
+ * Usage:                 *
+ * 		.div {              *
+ * 			@include phone {  *
+ * 			  width: 100%;    *
+ * 			}                 *
+ * 		}                   *
+ **************************/
+
+$phone-width: 320px;
+$tablet-width: 768px;
+$desktop-width: 1024px;
+
+@mixin phone {
+	@media only screen and (min-width: #{$phone-width}) and (max-width: #{$tablet-width - 1px}) {
+		@content;
+	}
+}
+
+@mixin tablet {
+  @media only screen and (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media only screen and (min-width: #{$desktop-width}) {
+    @content;
+  }
+}
+
+// Retina Display
+
+@mixin retina {
+  @media
+    only screen and (-webkit-min-device-pixel-ratio: 2),
+    only screen and (min--moz-device-pixel-ratio: 2),
+    only screen and (-o-min-device-pixel-ratio: 2/1),
+    only screen and (min-device-pixel-ratio: 2),
+    only screen and (min-resolution: 192dpi),
+    only screen and (min-resolution: 2dppx) {
+    @content;
+  }
+}
+
+/*******************
+ * Animation       *
+ * 		- General    *
+ * 		- Keyframes  *
+ *******************/
+
+// General
+
+/*******************************************
+ * Usage:                                  *
+ * .element {                              *
+ * 	@include animation('slide-down 5s 3'); *
+ * }                                       *
+ *******************************************/
+
+@mixin animation($a) {
+  -webkit-animation: #{$a};
+  -moz-animation: #{$a};
+  -ms-animation: #{$a};
+  -o-animation: #{$a};
+  animation: #{$a};
+}
+
+@mixin transition($a) {
+  -webkit-transition: $a;
+  -moz-transition: $a;
+  -ms-transition: $a;
+  -o-transition: $a;
+  transition: $a;
+}
+
+// Keyframes
+
+/****************************************
+ * Usage:                               *
+ * 		@include keyframes(slide-down) {  *
+ * 		  0% { opacity : 1; }             *
+ * 		  90% { opacity : 0; }            *
+ * 		}                                 *
+ ****************************************/
+
+@mixin keyframes($animation) {
+  @-webkit-keyframes $animation {
+    @content;
+  }
+  @-moz-keyframes $animation {
+    @content;
+  }
+  @-ms-keyframes $animation {
+    @content;
+  }
+  @-o-keyframes $animation {
+    @content;
+  }
+  @keyframes $animation {
+    @content;
+  }
+}

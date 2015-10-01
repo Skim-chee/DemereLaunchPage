@@ -1,0 +1,357 @@
+/******************************************
+ *  CSS for Index page (AKA landing page) *
+ *  Desc: First page that users view      *
+ *  Components: Signup/login box,         *
+ *  information divs, large footer,       *
+ *  scroll-to-top button                  *
+ ******************************************/
+ /**********************************************
+  *  All styling concerning headers found here *
+  **********************************************/
+
+
+ .header {
+   position: absolute;
+   top: 20px;
+   left: 127.5px;
+
+   width: 125px;
+   color: $red-main;
+
+   font-weight: 400;
+ }
+
+/**
+ *  Hero banner
+ *  Pt. 1
+ */
+
+// Container div for hero banner
+#hero {
+  @include desktop {
+    height: 100vh;
+    background: image-url("Landing.jpg")  no-repeat center center;
+  }
+}
+
+// DRESS WITH CONFIDENCE title on hero banner
+#hero-title {
+
+  color: #FFFFFF;
+
+  @include desktop {
+    width: 425px;
+
+    position: absolute;
+    top: 150px;
+    left: 125px;
+
+    font-size: 64px;
+    font-weight: 600;
+  }
+}
+
+// Contains the signup box
+.hero-signup-contain {
+  height: 350px;
+  width: 325px;
+
+  position: absolute;
+  top: 200px;
+  right: 50px;
+
+}
+
+// Styles the signup box, seperate div to obtain lower opacity effect of the box
+// without affecting the other content of the signup box
+.hero-signup-backdrop {
+  height: inherit;
+  width: inherit;
+
+  position: absolute;
+
+  background: #000;
+  opacity: 0.25;
+}
+
+// Contains the form of the signup box, positions it
+.hero-signup-content {
+
+  width: 325px;
+  padding: 25px;
+
+  position: absolute;
+}
+
+// Form of the signup box
+.hero-signup-form {
+  width: 275px;
+  height: 250px;
+}
+.flex-form {
+  @include flexbox;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.form-group {
+  width: 275px !important;
+  .index-form {
+    width: 100%;
+  }
+}
+.index-form {
+  font-size: 22px !important;
+}
+.form-submit {
+
+  width: 125px;
+
+}
+.flex-submit {
+  @include flexbox;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 25px;
+}
+/**
+ *  InfoGraphic Section
+ *  Pt 2
+ */
+
+// Container div for infographic
+#index-ig {
+  @include flexbox;
+
+  @include desktop {
+    @include center(768px);
+    height: 160vh;
+
+    padding-top: 75px;
+    padding-bottom: 75px;
+  }
+}
+
+// Section div, contains both the text portion and the image
+.index-ig-section {
+  @include flexbox;
+  align-items: center;
+  justify-content: space-between;
+
+  @include desktop {
+    height: 47.5vh;
+  }
+}
+
+// Image portion
+.index-ig-img {
+  height: inherit;
+
+}
+
+// Text portion
+.index-ig-text {
+
+  width: 40%;
+
+  margin: auto 0;
+}
+
+.ig-text-right {
+  // TODO: CHANGE TO FLEX (Subtract order)
+  order: 2;
+}
+
+// Head of the text portion
+.index-ig-head {
+  color: $red-main;
+
+  font-size: 38px;
+  font-weight: 400;
+}
+
+// Body of the text portion
+.index-ig-body {
+  color: $color-text-def;
+
+  font-size: 20px;
+}
+/**
+ *  Index Info Bar
+ *  pt 3
+ */
+
+#index-info-bar {
+  @include flexbox;
+
+  @include desktop {
+    height: 25vh;
+  }
+}
+
+/**
+ *  Extended Info
+ *  pt 4
+ */
+
+#index-info {
+  margin-top: 350px;
+  padding-top: 150px;
+  @include flexbox;
+  display: flex !important;
+  -webkit-flex-flow: row wrap;
+  justify-content: space-around;
+
+  @include desktop {
+    height: 42.5vh;
+    @include center(768px);
+  }
+}
+
+.index-info-contain {
+
+  @include desktop {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+.index-info-head {
+  font-weight: 400;
+}
+
+.index-info-body {
+
+}
+
+
+@import 'jeet/index';
+
+.btn {
+  // Resets
+  border: none;
+  text-decoration: none;
+  -webkit-appearance: none;
+
+
+  // Font
+  font-size: 14px;
+  font-family: inherit;
+  font-weight: 200;
+
+  // Positioning
+  text-align: center;
+
+  // Colours
+  background: $red-main;
+  color: #FFFFFF;
+  &:hover { background: #A4202A; color: #FFFFFF;}
+  &:visited { color: #FFFFFF;}
+  &:focus { color: #FFFFFF;}
+  a {
+    color: #FFFFFF;
+    &:hover { background: #A4202A; color: #FFFFFF;}
+    &:visited { color: #FFFFFF;}
+    &:focus { color: #FFFFFF;}
+  }
+}
+.btn-sm {
+  @extend .btn;
+  height: 40px;
+  width: 125px;
+
+  font-size: 12px;
+}
+
+.btn-sm-grey {
+  @extend .btn-sm;
+
+  background: $grey;
+  &:hover { background: $dark-grey; }
+}
+
+
+.login-btn{
+  position: absolute;
+  right: 72.5px;
+  border: none;
+  height:60px;
+  width: 125px;
+  line-height: 60px;
+  text-align: center;
+  font-family: inherit;
+  font-weight: 100;
+  font-size: 20px;
+  background-color: $truered;
+  color: #fff;
+  text-decoration: none;
+  z-index: 100;
+
+  &:hover {
+    background-color: $darkred;
+  }
+  @media screen and (max-width: 530px) {
+    right: 5%;
+  }
+}
+
+.signup-btn {
+  position: absolute;
+  margin-top: 25px;
+  right: 15px;
+  border: none;
+  height:75px;
+  width:125px;
+  background-color: $truered;
+
+
+  ;
+  font-weight: 100;
+  font-size: 13px;
+  color: #FFF;
+
+  &:hover {
+    background-color: $darkred;
+  }
+}
+#sign-up-btn {
+    margin-top: 50px;
+    border: none;
+    height:75px;
+    width:200px;
+    background-color: $truered;
+
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    font-size: 25px;
+    color: #FFF;
+
+    &:hover {
+      background-color: $darkred;
+    }
+}
+
+.preload-btn, .brands-btn, .onboard-btn {
+  @include center;
+  position: relative;
+  margin-top: 50px;
+  border: none;
+  height:75px;
+  width:150px;
+  background-color: #cecccc;
+  opacity: 0.8;
+
+  text-align: center;
+  line-height: 75px;
+  text-decoration: none;
+  ;
+  font-weight: 100;
+  font-size: 30px;
+  color: #000;
+  &:hover {
+    color: #FFF;
+    background-color:#bdbbbb;
+  }
+}
