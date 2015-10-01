@@ -2,10 +2,12 @@
 <% provide(:title, 'Sign up') %>
 
 <div class = "wrapper">
+
   <% flash.each do |message_type, message| %>
   <div class="flash <%= message_type if message.length > 0 %>"><p><%= message if message.length > 0 %></p>
   </div>
-<% end %>
+  <% end %>
+
   <!--  Home Section-->
 
   <h1 class = "header logo">demere</h1>
@@ -19,6 +21,10 @@
       </div>
       <div class = "hero-signup-content">
         <div class = "hero-signup-form">
+          <div class = "loginhead">
+            <p class = "loginboxhead head">Sign up</p>
+            <p class = "loginboxhead">for our beta version today! </p>
+          </div>
           <%= render "signup" %>
         </div>
       </div>

@@ -1,84 +1,99 @@
 
-<% @title = "Demere" %>
+<% @title = "demere" %>
 <% provide(:title, 'Sign up') %>
-
 
 <div class = "wrapper">
 
+  <% flash.each do |message_type, message| %>
+  <div class="flash <%= message_type if message.length > 0 %>"><p><%= message if message.length > 0 %></p>
+  </div>
+  <% end %>
+
   <!--  Home Section-->
 
-  <div id = "homeheader">
+  <h1 class = "header logo">demere</h1>
 
-    <div class = "home-top-bar">
-      <%= link_to "demere", root_path, class: "homeheaderlogo logobutton" %>
-    </div>
-    <div class = "hometitle">
-      <p>DRESS WITH CONFIDENCE</p>
-    </div>
+  <!-- Hero Banner -->
+  <div id = "hero">
+    <p id = "hero-title">DRESS WITH CONFIDENCE</p>
 
-    <div class = "signupcontain">
-      <div class = "homesignup">
-        <div class = "signupbox">
-        </div>
-        <div class = "signupcontent">
+    <div class = "hero-signup-contain">
+      <div class = "hero-signup-backdrop">
+      </div>
+      <div class = "hero-signup-content">
+        <div class = "hero-signup-form">
           <div class = "loginhead">
             <p class = "loginboxhead head">Thanks!</p>
-            <p class = "loginboxhead">We just need a bit more information about you! </p>
-            <% flash.each do |message_type, message| %>
-            <div class="alert <%= message_type %>"><p class = "stepserror"><%= message %></p></div>
-            <% end %>
+            <p class = "loginboxhead">we just need a bit more information</p>
           </div>
-          <div class = "signupform">
-            <div class = "logincontent">
-              <div class="logininputs">
-                <%= form_for(@email, :url => wizard_path, :method => :put) do |f| %>
-                <div class = "form-group mdl-textfield mdl-js-textfield textfield-demo form-multi">
-                  <%= f.text_field :name, label: false, class: 'mdl-textfield__input'%>
-                  <label class="mdl-textfield__label placehold-text" for="sample1">name</label>
-                </div>
-                <div class = "form-group mdl-textfield mdl-js-textfield textfield-demo form-multi">
-                  <%= f.text_field :zipcode,label: false, class: 'mdl-textfield__input'%>
-                  <label class="mdl-textfield__label placehold-text" for="sample1">zip code</label>
-                </div>
+          <%= form_for(@email, :url => wizard_path, :method => :put) do |f| %>
+          <div class = "flex-form">
+            <div class="form-group">
+              <%= f.text_field :name, required: true, placeholder: "name",  class: "index-form", autocomplete: 'off'%>
+            </div>
+            <div class="form-group">
+              <%= f.text_field :zipcode, required: true, placeholder: "zip code",  class: "index-form", autocomplete: 'off'%>
+            </div>
 
-                <div class = "form-submit">
-                  <button class = "loginbutton">next</button>
-                </div>
-                <% end %>
-              </div>
+            <div class = "form-submit">
+              <button class = "btn-sm">next</button>
             </div>
           </div>
+          <% end %>
         </div>
       </div>
     </div>
   </div>
 
-  <!--  Description Section-->
-
-  <div id = "homeinfo">
-  <div class = "homeinfocontain">
-      <div class = "infosection">
-        <h1 class = "infohead">Build Your Closet</h1>
-        <p class = "infobody"> Take pictures of your clothing and accessories and upload them to your virtual closet. </p>
+  <!-- Index Infographic section -->
+  <div id = "index-ig">
+    <div class = "index-ig-section">
+      <div class = "index-ig-text">
+        <h2 class = "index-ig-head">Build Your Closet</h2>
+        <p class = "index-ig-body"> Take pictures of your clothing and accessories and upload them to your virtual closet. </p>
       </div>
-      <div class = "infosection infoleft">
-        <h1 class = "infohead">Create an Outfit</h1>
-        <p class = "infobody"> Create customized outfits enhanced by our suggestions in seconds.</p>
+      <%= image_tag("LandingInfoOne.svg" , alt: "Build Closet", class: "index-ig-img") %>
+    </div>
+    <div class = "index-ig-section">
+      <div class = "index-ig-text ig-text-right">
+        <h2 class = "index-ig-head">Create an Outfit</h2>
+        <p class = "index-ig-body"> Create customized outfits enhanced by our suggestions in seconds.</p>
       </div>
-      <div class = "infosection infoleft">
-        <h1 class = "infohead">Get Suggestions</h1>
-        <p class = "infobody">Receive multiple outfit suggestions based on the weather or event you are attending.</p>
+      <%= image_tag("LandingInfoTwo.svg" , alt: "Create Outfit", class: "index-ig-img") %>
+    </div>
+    <div class = "index-ig-section">
+      <div class = "index-ig-text">
+        <h2 class = "index-ig-head">Get Suggestions</h2>
+        <p class = "index-ig-body">Receive multiple outfit suggestions based on the weather or event you are attending.</p>
       </div>
+      <%= image_tag("LandingInfoThree.svg" , alt: "Get Suggestions", class: "index-ig-img") %>
     </div>
   </div>
   <div id = "homeinfobar">
     <div class = "homeinfoback"></div>
-    <h1 class = "infoparahead">Technology. Fashion. Shopping. </h1>
-    <p class = "infopara" id = "infolightbox">Demere is combining these three areas to help save you time, money, and energy when getting dressed and shopping. By using proprietary image recognition capabilities we can suggest what you should wear based on items in your closet and ways to enhance your wardrobe. All this within seconds of logging onto our platform. We are so excited to help you get dressed on a daily basis!</p>
+    <h2 class = "infoparahead">Technology. Fashion. Shopping. </h2>
+    <p class = "infopara" id = "infolightbox">Demere is combining these three areas to help save you time, money, and energy when getting dressed and shopping. By using proprietary image recognition capabilities we can suggest what you should wear based on items in your closet and ways to enhance your wardrobe. All this within seconds of logging onto our platform.</p>
     <button class = "infomodal" data-featherlight = "#infolightbox"> Learn more! </button>
   </div>
+  <div id = "index-info">
+      <div class = "index-info-contain">
+        <p class = "index-info-head">Online suggestions</p>
+        <p class = "index-info-body">Save time on scouring the web for the perfect match for your wardrobe by using our online purchasing suggestions</p>
+        <!-- <button class = "extra-info-modal-button extra-one"> Learn more! </button> -->
+      </div>
+      <div class = "index-info-contain">
+        <p class = "index-info-head">Instore purchasing</p>
+        <p class = "index-info-body">No longer fear buying something you already have or something that doesn't match your closet with our instore assistance!</p>
+        <!-- <button class = "extra-info-modal-button extra-two"> Learn more! </button> -->
+      </div>
+      <div class = "index-info-contain">
+        <p class = "index-info-head">Clothing is Social</p>
+        <p class = "index-info-body">Wondering what your favorite celebrity is wearing? Trying to match outfits with your best friend tomorrow? Our social aspect makes this all possible!</p>
+        <!-- <button class = "extra-info-modal-button extra-three"> Learn more! </button> -->
+      </div>
+  </div>
   <div id = "signupbar">
-    <button id = "sign-up-button">Sign up!</button>
+    <button id = "sign-up-btn">Sign up for free!</button>
   </div>
   <div id = "footer">
     <div class = "footer-contact">

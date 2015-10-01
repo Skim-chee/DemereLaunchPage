@@ -12,13 +12,18 @@
 
  .header {
    position: absolute;
-   top: 20px;
-   left: 127.5px;
+   left: 0;
+   right: 0;
 
    width: 125px;
    color: $red-main;
 
    font-weight: 400;
+
+   @include desktop {
+     top: 20px;
+     left: 127.5px;
+   }
  }
 
 /**
@@ -28,6 +33,9 @@
 
 // Container div for hero banner
 #hero {
+  height: 100vh;
+  background: image-url("Landing.jpg")  no-repeat center center;
+
   @include desktop {
     height: 100vh;
     background: image-url("Landing.jpg")  no-repeat center center;
@@ -38,7 +46,7 @@
 #hero-title {
 
   color: #FFFFFF;
-
+  display: none;
   @include desktop {
     width: 425px;
 
@@ -53,13 +61,17 @@
 
 // Contains the signup box
 .hero-signup-contain {
+  width: 100%;
+  height: 75vh;
+  position: absolute;
+  bottom: 0;
+
+  @include desktop {
   height: 350px;
   width: 325px;
-
-  position: absolute;
   top: 200px;
   right: 50px;
-
+  }
 }
 
 // Styles the signup box, seperate div to obtain lower opacity effect of the box
@@ -71,24 +83,37 @@
   position: absolute;
 
   background: #000;
-  opacity: 0.25;
+  opacity: 0.5;
+  @include desktop {
+    opacity: 0.25;
+  }
 }
 
 // Contains the form of the signup box, positions it
 .hero-signup-content {
-
-  width: 325px;
-  padding: 25px;
+  width: inherit;
+  height: inherit;
+  @include desktop {
+    width: 325px;
+    padding: 25px;
+  }
 
   position: absolute;
 }
 
 // Form of the signup box
 .hero-signup-form {
-  width: 275px;
-  height: 250px;
+  @include center(75%);
+  height: 100%;
+  max-width: 300px;
+  @include desktop {
+    width: 275px;
+    height: 250px;
+  }
 }
 .flex-form {
+  height: 200px;
+  margin-top: 40px;
   @include flexbox;
   flex-direction: row;
   justify-content: center;
@@ -124,13 +149,15 @@
 // Container div for infographic
 #index-ig {
   @include flexbox;
+  @include center(100%);
+  height: 280vh;
+  padding-bottom: 75px;
 
   @include desktop {
     @include center(768px);
     height: 160vh;
 
     padding-top: 75px;
-    padding-bottom: 75px;
   }
 }
 
@@ -139,29 +166,36 @@
   @include flexbox;
   align-items: center;
   justify-content: space-between;
+  height: 85vh;
+  min-height: 450px;
+  flex-direction: column;
 
   @include desktop {
+    flex-direction: row;
+    min-height: 47.5vh;
     height: 47.5vh;
   }
 }
 
 // Image portion
 .index-ig-img {
-  height: inherit;
+  height: 47.5vh;
+  @include desktop { height: inherit; }
 
 }
 
 // Text portion
 .index-ig-text {
 
-  width: 40%;
+  @include desktop {width: 40%;}
 
   margin: auto 0;
 }
 
 .ig-text-right {
-  // TODO: CHANGE TO FLEX (Subtract order)
-  order: 2;
+  @include desktop {
+    order: 2;
+  }
 }
 
 // Head of the text portion
@@ -203,15 +237,20 @@
   display: flex !important;
   -webkit-flex-flow: row wrap;
   justify-content: space-around;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
 
   @include desktop {
     height: 42.5vh;
     @include center(768px);
+    flex-direction: row;
   }
 }
 
 .index-info-contain {
-
+  width: 100%;
+  height: 15vh;
   @include desktop {
     width: 200px;
     height: 200px;

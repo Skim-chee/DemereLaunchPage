@@ -8,20 +8,20 @@ $textred: #C35A62;
 *::-moz-selection { background-color: $textred !important; ;}
 
 .alert{
-  top: -20px;
-  position:absolute;
+  position: absolute;
+  left: 0;
+  right: 0;
+  @include center(200px);
   text-align: center;
-  width: 100%;
   height: 120px;
   background-color: $textred;
 
   p {
-    margin: 0 a uto;
-    width: 90%;
+    margin: 0 auto;
+    width: 80%;
     font-weight: 300;
     font-size: 18px;
-    top: 50%;
-    margin-top: 10%;
+    margin-top: 30px;
   }
 
   .stepserror {
@@ -174,34 +174,7 @@ $textred: #C35A62;
           position: absolute;
         }
       }
-      .loginhead{
-        text-align: center;
-        position: relative;
-        height: 25%;
 
-        .loginboxhead{
-          font-size: 16px;
-          letter-spacing: 0px;
-          display:inline-block;
-          transform:scale(1,1); /* W3C */
-          -webkit-transform:scale(1,1); /* Safari and Chrome */
-          -moz-transform:scale(1,1); /* Firefox */
-          -ms-transform:scale(1,1); /* IE 9 */
-          -o-transform:scale(1,1); /* Opera */
-          font-weight: 300;
-          color: #000;
-          margin: 0 auto;
-        }
-        .head{
-          font-size: 45px;
-          font-weight: 500;
-          color: $red;
-          @include col(1);
-          @media screen and (max-width: 480px) {
-            margin-top: 40px;
-          }
-        }
-      }
       .signupform{
         height: 75%;
         position: relative;
@@ -430,4 +403,34 @@ $textred: #C35A62;
   width: 80%;
   font-size: 15px;
   font-weight: 200;
+}
+
+.loginhead{
+  text-align: center;
+  position: relative;
+  height: 25%;
+
+  .loginboxhead{
+    font-size: 16px;
+    letter-spacing: 0px;
+    display:inline-block;
+    transform:scale(1,1); /* W3C */
+    -webkit-transform:scale(1,1); /* Safari and Chrome */
+    -moz-transform:scale(1,1); /* Firefox */
+    -ms-transform:scale(1,1); /* IE 9 */
+    -o-transform:scale(1,1); /* Opera */
+    font-weight: 300;
+    margin: 0 auto;
+    color: #fff;
+    @include desktop {color: #000;}
+  }
+  .head{
+    font-size: 45px;
+    font-weight: 500;
+    color: $red;
+    @include col(1);
+    @media screen and (max-width: 480px) {
+      margin-top: 40px;
+    }
+  }
 }

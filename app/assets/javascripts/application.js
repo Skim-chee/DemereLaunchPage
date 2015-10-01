@@ -18,7 +18,7 @@
 var $win = $(window);
 
 $(document).ready(function() {
-  $('#sign-up-button').click( function() {
+  $('#sign-up-btn').click( function() {
     $('html, body').animate({
       scrollTop: $(".wrapper").offset().top
     }, 1000);
