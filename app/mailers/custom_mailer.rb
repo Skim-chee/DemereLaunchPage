@@ -4,6 +4,6 @@ class CustomMailer < ActionMailer::Base
 
 	def custom_email(email)
 		@email = email
-		mail(to: @email.email, subject: 'An update from demere!')
+		mail(to: @email.email, subject: 'Sorry about that!')
 	end
 end
