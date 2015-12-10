@@ -26,22 +26,22 @@
 
 development:
   adapter: mysql2
-  database: railsapp_dev
+  database: demerlaunch
   encoding: utf8
-  host: localhost
-  username: root
-  password: 
+  host: 'demeredb.ch5p4f9jtzkb.us-east-1.rds.amazonaws.com'
+  username: demer
+  password: 234rable
 test:
   adapter: mysql2
   database: demerlaunch
   encoding: utf8
-  host: 'demerdb.ch5p4f9jtzkb.us-east-1.rds.amazonaws.com'
+  host: 'demeredb.ch5p4f9jtzkb.us-east-1.rds.amazonaws.com'
   username: demer
   password: 234rable
 production:
   adapter: mysql2
   database: demerlaunch
   encoding: utf8
-  host: localhost
-  username: root
-  password: 
+  host: 'demeredb.ch5p4f9jtzkb.us-east-1.rds.amazonaws.com'
+  username: demer
+  password: 234rable
